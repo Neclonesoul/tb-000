@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/components/BaseLayout.astro';
+export async function getStaticPaths() {
+  return (await getCollection('field')).map((record) => ({ params: { id: record.id }, props: { record } }));
+}
+const { record } = Astro.props;
+const { Content } = await render(record);
+---
+<BaseLayout title={`${record.data.id} / ${record.data.title}`} description={`Field record from ${record.data.location}.`} type="article">
+  <article class="dossier">
+    <header class="dossier-hero"><div class="shell dossier-lead">
+      <div><span class="record-number">{record.data.id} / FIELD RECORD</span><h1 transition:name={`field-${record.data.id}`}>{record.data.title}</h1></div>
+      <p>{record.data.category}<br />{record.data.location}<br />{record.data.date.toLocaleDateString('en-GB', { dateStyle: 'long' })}</p>
+    </div></header>
+    <div class="dossier-body shell"><article><div class="image-reserve" role="img" aria-label="Original field photograph not yet published">ORIGINAL IMAGE RESERVED<br />NO SUBSTITUTE PHOTOGRAPHY</div><Content /></article><aside><span class="eyebrow">RECORD METADATA</span><p class="meta">LOCATION<br />{record.data.location}</p><p class="meta">CATEGORY<br />{record.data.category}</p><a class="explore-link" href="/field/"><span>FIELD INDEX</span><span>←</span></a></aside></div>
+  </article>
+</BaseLayout>

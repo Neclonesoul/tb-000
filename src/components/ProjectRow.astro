@@ -1,0 +1,19 @@
+---
+import type { PublicProject } from '@/lib/projects';
+interface Props { project: PublicProject; index?: number; }
+const { project, index = 0 } = Astro.props;
+---
+<article class:list={['project-row', index % 2 ? 'project-row--offset' : '']}>
+  <a class="project-row-link" href={project.href} aria-label={`Open ${project.id}, ${project.title}`}>
+    <span class="project-id" transition:name={`project-id-${project.slug}`}>{project.id}</span>
+    <span class="project-core">
+      <span class="project-title" transition:name={`project-title-${project.slug}`}>{project.title}</span>
+      <span class="project-summary">{project.summary}</span>
+    </span>
+    <span class="project-spec">
+      <span>{project.disciplines.join(' / ')}</span>
+      <span class="status">{project.status}</span>
+    </span>
+    <span class="project-arrow" aria-hidden="true">↗</span>
+  </a>
+</article>

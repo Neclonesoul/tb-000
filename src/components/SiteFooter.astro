@@ -1,0 +1,23 @@
+---
+import { SITE } from '@/lib/site';
+---
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div>
+      <p class="eyebrow">TYSON BARNES</p>
+      <p class="footer-statement">Engineering the physical &amp; digital world.</p>
+      <p class="meta">{SITE.location}</p>
+    </div>
+    <nav aria-label="Secondary navigation" class="footer-links">
+      <a href={SITE.github}>GitHub</a>
+      <a href={SITE.email}>Email</a>
+      <a href="/rss.xml">RSS</a>
+      <a href="/terminal/">Terminal</a>
+    </nav>
+    <div class="footer-system" aria-label="Site information">
+      <span>TB–000</span>
+      <span>BUILT WITH ASTRO</span>
+      <span>NO TRACKERS</span>
+    </div>
+  </div>
+</footer>

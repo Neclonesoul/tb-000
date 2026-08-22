@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/components/BaseLayout.astro';
+import Terminal from '@/components/Terminal.svelte';
+import { sortProjects, toPublicProject } from '@/lib/projects';
+const projects = sortProjects(await getCollection('projects')).map(toPublicProject).map(({ id, title, status, href }) => ({ id, title, status, href }));
+---
+<BaseLayout title="Public Terminal" description="A keyboard and touch-accessible terminal interface to the TB–000 project registry.">
+  <div class="terminal-page shell">
+    <header class="terminal-intro"><div><span class="record-number">INSTRUMENT / ALT INTERFACE</span><h1>PUBLIC<br />TERMINAL</h1></div><p>The same project registry in a command interface. No simulated boot sequence. No fabricated system output. Type <code>help</code> or <code>work</code>.</p></header>
+    <Terminal client:load projects={projects} />
+  </div>
+</BaseLayout>

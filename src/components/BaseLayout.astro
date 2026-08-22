@@ -1,0 +1,74 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import { getCollection } from 'astro:content';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import CommandPalette from './CommandPalette.svelte';
+import { SITE, canonical, primaryNav } from '@/lib/site';
+import { sortProjects, toPublicProject } from '@/lib/projects';
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title = SITE.title,
+  description = SITE.description,
+  image = '/og.png',
+  type = 'website'
+} = Astro.props;
+const pageTitle = title === SITE.title ? title : `${title} — Tyson Barnes`;
+const pageUrl = canonical(Astro.url.pathname);
+const imageUrl = canonical(image);
+const projects = sortProjects(await getCollection('projects')).map(toPublicProject);
+const paletteItems = [
+  ...primaryNav.map((item) => ({ label: item.label, detail: 'SECTION', href: item.href })),
+  { label: 'SYSTEMS', detail: 'SECTION', href: '/systems/' },
+  { label: 'PHOTOGRAPHY', detail: 'SECTION', href: '/photography/' },
+  { label: 'TERMINAL', detail: 'INSTRUMENT', href: '/terminal/' },
+  ...projects.map((project) => ({ label: project.title, detail: `${project.id} / ${project.status}`, href: project.href }))
+];
+const structured = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.name,
+  url: SITE.url,
+  sameAs: [SITE.github],
+  knowsAbout: ['Industrial automation', 'Software systems', 'Linux', 'Web publishing', 'Photography']
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={pageUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Tyson Barnes — Notes" href="/rss.xml" />
+    <meta name="theme-color" content="#171815" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structured)}></script>
+    <ClientRouter />
+  </head>
+  <body>
+    <SiteHeader />
+    <main id="main"><slot /></main>
+    <SiteFooter />
+    <CommandPalette client:idle items={paletteItems} />
+  </body>
+</html>

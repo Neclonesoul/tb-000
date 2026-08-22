@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/components/BaseLayout.astro';
+import ProjectExplorer from '@/components/ProjectExplorer.svelte';
+import { sortProjects, toPublicProject } from '@/lib/projects';
+const projects = sortProjects(await getCollection('projects')).map(toPublicProject);
+---
+<BaseLayout title="Work / Index" description="The TB project registry: public software, Linux systems, field computing and web work.">
+  <header class="page-intro"><div class="shell page-intro-grid">
+    <div><span class="record-number">TB–000 / REGISTRY</span><h1>WORK<br />INDEX</h1></div>
+    <p>A catalogue of released, live and public systems. Project identifiers remain stable as the archive grows.</p>
+  </div></header>
+  <div class="shell"><ProjectExplorer client:load projects={projects} /></div>
+  <section class="section section--paper"><div class="shell section-header">
+    <div><span class="eyebrow">SECONDARY RECORD</span><h2>SELECTED<br />WEB WORK</h2></div>
+    <div><p>Commercial sites and adjacent public web systems are catalogued separately from the flagship engineering projects.</p><a class="explore-link" href="/work/selected-web-work/"><span>OPEN WEB RECORD</span><span>↗</span></a></div>
+  </div></section>
+</BaseLayout>

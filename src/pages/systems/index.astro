@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/components/BaseLayout.astro';
+import SystemMap from '@/components/SystemMap.svelte';
+import { sortProjects, toPublicProject } from '@/lib/projects';
+const projects = sortProjects(await getCollection('projects')).map(toPublicProject);
+---
+<BaseLayout title="Systems" description="The mobile development and publishing systems behind the work.">
+  <header class="page-intro"><div class="shell page-intro-grid">
+    <div><span class="record-number">SYSTEMS / RELATIONSHIPS</span><h1>HOW THE<br />WORK MOVES</h1></div>
+    <p>Tools are useful here only as parts of a repeatable flow—from a field device to source control and production.</p>
+  </div></header>
+  <div class="shell"><SystemMap client:visible projects={projects} /></div>
+</BaseLayout>

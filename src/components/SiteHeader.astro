@@ -1,0 +1,20 @@
+---
+import { primaryNav } from '@/lib/site';
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell header-inner">
+    <a class="site-mark" href="/" aria-label="Tyson Barnes — home">
+      <span>TB</span><span class="signal">–000</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      {primaryNav.map((item) => (
+        <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+    <button class="palette-trigger" type="button" data-open-palette aria-label="Open command palette">
+      <span>FIND</span><kbd>⌘K</kbd>
+    </button>
+  </div>
+</header>

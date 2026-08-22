@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/components/BaseLayout.astro';
+const groups = ['FIELD', 'MACHINES', 'PEOPLE', 'PLACES', 'EXPERIMENTAL'];
+---
+<BaseLayout title="Photography" description="Photography as field observation and technical record.">
+  <header class="page-intro"><div class="shell page-intro-grid">
+    <div><span class="record-number">PHOTOGRAPHY / ARCHIVE</span><h1>VISUAL<br />RECORDS</h1></div>
+    <p>Photography is treated as evidence and observation. The archive structure is ready; original files will be published without stock or invented substitutes.</p>
+  </div></header>
+  <div class="shell section">
+    <div class="image-reserve">PHOTOGRAPHIC ARCHIVE<br />AWAITING ORIGINAL, SELECTED FILES</div>
+    <div class="manifest">{groups.map((group) => <section><span class="eyebrow">GROUP</span><h2>{group}</h2><p class="meta">NO PUBLIC SELECTION YET</p></section>)}</div>
+    <a class="explore-link" href="https://insta.tysonbarnes.co.uk"><span>OPEN ACTIVE PHOTOGRAPHY SITE</span><span>↗</span></a>
+  </div>
+</BaseLayout>

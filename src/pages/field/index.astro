@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/components/BaseLayout.astro';
+const records = (await getCollection('field')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<BaseLayout title="Field Notes from Africa" description="Photography, engineering, natural history, design and writing from the field.">
+  <header class="page-intro"><div class="shell page-intro-grid">
+    <div><span class="record-number">FIELD / OBSERVATION</span><h1>FIELD NOTES<br />FROM AFRICA</h1></div>
+    <p>Photography · Engineering · Natural History · Design · Writing. Records are published only when the observation and original media are available.</p>
+  </div></header>
+  <div class="shell archive-grid">
+    {records.map((record) => <a class="archive-record" href={`/field/${record.id}/`} transition:name={`field-${record.id}`}>
+      <span class="eyebrow">{record.data.id} / {record.data.category}</span>
+      <div><h2>{record.data.title}</h2><p>{record.data.location}</p><span class="meta">{record.data.date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</span></div>
+    </a>)}
+  </div>
+  <div class="shell"><a class="explore-link" href="/field/rss.xml"><span>FIELD RSS</span><span>↗</span></a></div>
+</BaseLayout>

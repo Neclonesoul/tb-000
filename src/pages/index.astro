@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/components/BaseLayout.astro';
+import ProjectRow from '@/components/ProjectRow.astro';
+import { sortProjects, toPublicProject } from '@/lib/projects';
+const projects = sortProjects(await getCollection('projects')).map(toPublicProject);
+---
+<BaseLayout>
+  <section class="hero shell">
+    <div>
+      <div class="hero-topline"><span class="eyebrow">TYSON BARNES</span><span class="meta">SOUTH AFRICA / UNITED KINGDOM</span></div>
+      <h1 aria-label="Engineering the physical and digital world">
+        <span>ENGINEERING</span><span class="line-2">THE PHYSICAL</span><span class="line-3">&amp; DIGITAL WORLD.</span>
+      </h1>
+    </div>
+    <div class="hero-bottom">
+      <div>
+        <p class="hero-descriptor">Software · Systems · Web · Photography · Field Technology</p>
+        <a class="explore-link" href="#selected-work"><span>EXPLORE THE WORK</span><span>↓</span></a>
+      </div>
+      <p class="hero-intro">A permanent index of systems built, observed, documented and published—across industrial practice, software, mobile computing and the field.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper" id="selected-work">
+    <div class="shell">
+      <header class="section-header">
+        <div><span class="eyebrow">WORK / SELECTED SYSTEMS</span><h2>BUILT<br />RECORDS</h2></div>
+        <p>Four public projects. Each began with a constraint: no network, no conventional workstation, no root access, or a need to make complex material navigable.</p>
+      </header>
+      <div class="project-sequence">
+        {projects.map((project, index) => <ProjectRow project={project} index={index} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <header class="section-header">
+        <div><span class="eyebrow">PRACTICE / ONE SYSTEM</span><h2>THE THINGS<br />CONNECT</h2></div>
+        <p>Industrial automation established the method: understand the physical process, identify the interfaces, make state visible, and leave a system that can be operated.</p>
+      </header>
+      <div class="now-grid">
+        <section><h3 class="eyebrow">PHYSICAL</h3><p>Instrumentation, automation and field observation.</p></section>
+        <section><h3 class="eyebrow">COMPUTATIONAL</h3><p>Linux, software and mobile working environments.</p></section>
+        <section><h3 class="eyebrow">PUBLISHED</h3><p>Web systems, documentation and photographic records.</p></section>
+      </div>
+      <a class="explore-link" href="/systems/"><span>EXAMINE THE SYSTEM</span><span>↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

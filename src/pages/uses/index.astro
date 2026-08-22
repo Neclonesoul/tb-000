@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/components/BaseLayout.astro';
+const groups = [
+  ['COMPUTING', [['Samsung Galaxy S24 Ultra', 'MOBILE WORKSTATION'], ['Termux', 'ANDROID TERMINAL'], ['Galaxy DeX', 'LARGE-SCREEN MOBILE']]],
+  ['SOFTWARE', [['Git', 'SOURCE CONTROL'], ['Astro', 'STATIC PUBLISHING'], ['Hugo', 'STATIC PUBLISHING'], ['Go', 'COMPILED SOFTWARE'], ['Lightroom Mobile', 'IMAGE PROCESSING']]],
+  ['IMAGING', [['Nikon camera system', 'RAW PHOTOGRAPHY'], ['GoPro HERO10', 'FIELD / UNDERWATER']]]
+];
+---
+<BaseLayout title="Uses" description="A compact manifest of confirmed computing, software and imaging tools.">
+  <header class="page-intro"><div class="shell page-intro-grid"><div><span class="record-number">USES / MANIFEST</span><h1>WORKING<br />EQUIPMENT</h1></div><p>Confirmed tools in active practice. No affiliate links and no wall of technology logos.</p></div></header>
+  <div class="shell manifest">{groups.map(([name, items]) => <section><span class="eyebrow">{name}</span><ul>{(items as string[][]).map(([item, role]) => <li><span>{item}</span><small>{role}</small></li>)}</ul></section>)}</div>
+</BaseLayout>

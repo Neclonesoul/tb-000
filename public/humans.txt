@@ -1,0 +1,13 @@
+/* HUMAN */
+
+Tyson Barnes
+Engineer · Builder · Photographer
+
+South Africa / United Kingdom
+
+/* SITE */
+
+TB–000
+Built with Astro.
+Source managed with Git.
+Deployed through Cloudflare.
