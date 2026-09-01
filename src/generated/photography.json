@@ -1,0 +1,52 @@
+[
+  {
+    "id": "PH-001",
+    "src": "/media/photography/01-galaxy.webp",
+    "thumb": "/media/photography/01-galaxy-thumb.webp",
+    "alt": "galaxy",
+    "caption": "GALAXY",
+    "group": "FIELD",
+    "width": 1800,
+    "height": 911
+  },
+  {
+    "id": "PH-002",
+    "src": "/media/photography/02-field-kjv1611.webp",
+    "thumb": "/media/photography/02-field-kjv1611-thumb.webp",
+    "alt": "field.kjv1611",
+    "caption": "FIELD.KJV1611",
+    "group": "FIELD",
+    "width": 865,
+    "height": 1800
+  },
+  {
+    "id": "PH-003",
+    "src": "/media/photography/03-archmac-01.webp",
+    "thumb": "/media/photography/03-archmac-01-thumb.webp",
+    "alt": "Archmac 01",
+    "caption": "ARCHMAC 01",
+    "group": "MACHINES",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "id": "PH-004",
+    "src": "/media/photography/04-pepegun-01.webp",
+    "thumb": "/media/photography/04-pepegun-01-thumb.webp",
+    "alt": "pepegun 01",
+    "caption": "PEPEGUN 01",
+    "group": "PEOPLE",
+    "width": 1024,
+    "height": 894
+  },
+  {
+    "id": "PH-005",
+    "src": "/media/photography/05-tysonbarnes.webp",
+    "thumb": "/media/photography/05-tysonbarnes-thumb.webp",
+    "alt": "tysonbarnes",
+    "caption": "TYSONBARNES",
+    "group": "PEOPLE",
+    "width": 600,
+    "height": 600
+  }
+]

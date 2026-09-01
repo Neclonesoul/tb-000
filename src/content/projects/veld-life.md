@@ -4,8 +4,9 @@ title: "VELD//LIFE"
 slug: "veld-life"
 year: 2026
 type: "GENERATIVE FIELD SYSTEM"
-status: "PUBLIC"
-featured: false
+status: "LIVE"
+featured: true
+liveUrl: "https://veld-life.barnestyson.workers.dev/"
 summary: "An African cellular-automata experiment treating Conway-style life as a field instrument rather than a generic grid demo."
 description: "VELD//LIFE explores simple rules, emergence and African visual language through a lightweight browser-based cellular system."
 technologies: ["TypeScript", "Web", "PWA"]
@@ -17,3 +18,7 @@ order: 10
 ## Field
 
 Simple local rules can produce unexpected global structure. VELD//LIFE turns that idea into a small public computational field.
+
+## Live experiment
+
+[Open VELD//LIFE](https://veld-life.barnestyson.workers.dev/).

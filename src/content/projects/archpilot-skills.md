@@ -5,7 +5,7 @@ slug: "archpilot-skills"
 year: 2026
 type: "AI OPERATIONS / ENGINEERING"
 status: "PUBLIC"
-featured: true
+featured: false
 summary: "A safety-oriented skill system for AI-assisted operation of Arch Linux workstations and engineering environments."
 description: "ArchPilot Skills codifies inspect-before-modify practice, evidence handling, risk levels, session state and bounded authorization for AI-assisted technical work."
 technologies: ["AI", "Arch Linux", "Shell", "GitHub", "Structured Workflows"]
