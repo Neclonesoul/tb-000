@@ -8,7 +8,7 @@ export type MediaRecord = {
 
 const projectMedia: Record<string, MediaRecord> = {
   archmac: {
-    src: '/media/curated/archmac-01.webp',
+    src: '/media/curated/archmac-02.gif',
     alt: 'ARCHMAC sovereign Linux workstation',
     caption: 'ARCHMAC / SOVEREIGN WORKSTATION'
   },
