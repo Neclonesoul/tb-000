@@ -22,7 +22,7 @@
 
 <section class="system-map" aria-labelledby="map-title">
   <div class="system-map-head">
-    <div><span class="eyebrow">INTERACTIVE SYSTEM / 01</span><h2 id="map-title">MOBILE DEVELOPMENT<br />&amp; PUBLISHING</h2></div>
+    <div><span class="eyebrow">INTERACTIVE FLOW / 02A</span><h2 id="map-title">DEVELOPMENT<br />&amp; PUBLISHING</h2></div>
     <p>Select a node to expose its immediate relationships and the work produced through it.</p>
   </div>
   <div class="node-field" role="group" aria-label="System nodes">
@@ -40,6 +40,6 @@
   </div>
   <details class="system-text">
     <summary>Text description of the system</summary>
-    <p>Android hosts Termux. Termux provides Git, Go, Astro and Hugo tooling. Git transfers source to GitHub. Cloudflare builds or deploys the resulting static output to production.</p>
+    <p>Android can host Termux as a field-development environment. Termux provides Git, Go, Astro and Hugo tooling. Git transfers source to GitHub. Cloudflare receives the resulting static output or deployment handoff for production delivery.</p>
   </details>
 </section>

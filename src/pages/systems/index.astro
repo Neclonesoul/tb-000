@@ -3,12 +3,120 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@/components/BaseLayout.astro';
 import SystemMap from '@/components/SystemMap.svelte';
 import { sortProjects, toPublicProject } from '@/lib/projects';
+
 const projects = sortProjects(await getCollection('projects')).map(toPublicProject);
+
+const domains = [
+  {
+    no: '01',
+    title: 'PHYSICAL',
+    label: 'Instrumentation · Automation · Process Control · Industrial Systems',
+    body:
+      'Plant, instrumentation, controls, filtration, calibration, commissioning, failure analysis and the physical interfaces where software ultimately meets equipment.',
+    href: '/about/'
+  },
+  {
+    no: '02',
+    title: 'COMPUTATIONAL',
+    label: 'Software Engineering · Linux · Systems Administration · Networks',
+    body:
+      'Software, operating systems, networking, hosting, mobile systems and the technical infrastructure used to build, operate and publish independent systems.',
+    href: '/work/'
+  },
+  {
+    no: '03',
+    title: 'INTELLIGENCE',
+    label: 'AI Engineering · Agentic Systems · Data Systems · Applied Automation',
+    body:
+      'Applied AI, agentic engineering, data pipelines, verification workflows and automation used as controlled extensions of technical practice.',
+    href: '/work/'
+  },
+  {
+    no: '04',
+    title: 'OPERATIONAL',
+    label: 'Systems Architecture · ERP · POS · Business Automation · Controls',
+    body:
+      'Operational systems that make work visible and controllable: business process architecture, ERP, POS, inventory, revenue control, SOPs and automation.',
+    href: '/about/'
+  },
+  {
+    no: '05',
+    title: 'OBSERVATIONAL',
+    label: 'Microscopy · Live Blood Analysis · Photography · Field Observation',
+    body:
+      'Observation, microscopy, photography and field records used to document physical reality, practical work and systems in context.',
+    href: '/field/'
+  }
+] as const;
 ---
-<BaseLayout title="Systems" description="The mobile development and publishing systems behind the work.">
-  <header class="page-intro"><div class="shell page-intro-grid">
-    <div><span class="record-number">SYSTEMS / RELATIONSHIPS</span><h1>HOW THE<br />WORK MOVES</h1></div>
-    <p>Tools are useful here only as parts of a repeatable flow—from a field device to source control and production.</p>
-  </div></header>
-  <div class="shell"><SystemMap client:visible projects={projects} /></div>
+
+<BaseLayout
+  title="Systems"
+  description="The operating domains, relationships and development systems behind the work of Tyson Barnes."
+>
+  <header class="page-intro systems-intro">
+    <div class="shell">
+      <span class="record-number">TB / SYSTEMS / 2026</span>
+
+      <div class="page-intro-grid systems-intro-grid">
+        <h1>SYSTEMS<br />ACROSS<br />SCALES.</h1>
+
+        <div class="systems-intro-copy">
+          <p>
+            The medium changes. The method does not: understand the system, expose its state,
+            reduce unnecessary complexity, and build something that can be operated.
+          </p>
+          <span class="meta">PHYSICAL → COMPUTATIONAL → OPERATIONAL → OBSERVATIONAL</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section section--paper systems-domains">
+    <div class="shell">
+      <header class="section-header systems-domain-head">
+        <div>
+          <span class="eyebrow">OPERATING ARCHITECTURE / 01</span>
+          <h2>FIVE<br />DOMAINS</h2>
+        </div>
+        <p>
+          These are not isolated disciplines. They are different layers of the same practice:
+          sensing, understanding, controlling, operating and documenting systems.
+        </p>
+      </header>
+
+      <div class="systems-domain-grid">
+        {domains.map((domain) => (
+          <article class="systems-domain-card">
+            <span class="systems-domain-no">{domain.no}</span>
+            <div>
+              <h3>{domain.title}</h3>
+              <p class="systems-domain-label">{domain.label}</p>
+            </div>
+            <p>{domain.body}</p>
+            <a href={domain.href} aria-label={`Open evidence for ${domain.title}`}>
+              EVIDENCE <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section systems-flow">
+    <div class="shell systems-flow-intro">
+      <span class="eyebrow">IMPLEMENTATION SYSTEM / 02</span>
+      <div>
+        <h2>FROM FIELD DEVICE<br />TO PRODUCTION.</h2>
+        <p>
+          One concrete implementation path: local tools, source control, compiled or static
+          software, public repositories and production delivery.
+        </p>
+      </div>
+    </div>
+
+    <div class="shell">
+      <SystemMap client:visible projects={projects} />
+    </div>
+  </section>
 </BaseLayout>
