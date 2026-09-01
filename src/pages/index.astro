@@ -1,51 +1,48 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/components/BaseLayout.astro';
-import ProjectRow from '@/components/ProjectRow.astro';
 import { sortProjects, toPublicProject } from '@/lib/projects';
-import editorialImageData from '@/generated/editorial-images.json';
+import { media } from '@/data/media';
 
-type EditorialImage = {
-  src: string;
-  alt: string;
-  caption: string;
-};
 
 const projects = sortProjects(await getCollection('projects')).map(toPublicProject);
-const editorialImages = editorialImageData as EditorialImage[];
-const featuredProjects = projects.filter((project) => project.featured);
-const selectedProjects = featuredProjects.length ? featuredProjects : projects;
+const homeProjectSlugs = ['archmac', 'web', 'sa-public-api-observatory', 'veld-life'];
+const selectedProjects = homeProjectSlugs.flatMap((slug) => {
+  const project = projects.find((candidate) => candidate.slug === slug);
+  return project ? [project] : [];
+});
 ---
 
 <BaseLayout>
   <!-- refresh:2026 -->
-  <section class="hero shell">
-    <div>
+  <section class="hero hero--editorial shell">
+    <div class="hero-copy">
       <div class="hero-topline">
         <span class="eyebrow">TYSON BARNES</span>
         <span class="meta">SOUTH AFRICA / UNITED KINGDOM</span>
       </div>
-
       <h1 aria-label="Engineering the physical and digital world">
         <span>ENGINEERING</span>
         <span class="line-2">THE PHYSICAL</span>
-        <span class="line-3">&amp; DIGITAL WORLD.</span>
+        <span class="line-3">&amp; DIGITAL WORLD</span>
       </h1>
-    </div>
-
-    <div class="hero-bottom">
-      <div>
-        <p class="hero-descriptor">Engineering · Software · Systems · AI · Field Technology</p>
-        <a class="explore-link" href="#selected-work">
-          <span>EXPLORE THE WORK</span><span>↓</span>
-        </a>
+      <div class="hero-bottom">
+        <div>
+          <p class="hero-descriptor">Engineering · Software · Systems · AI · Field Technology</p>
+          <a class="explore-link" href="#selected-work">
+            <span>EXPLORE THE WORK</span><span>↓</span>
+          </a>
+        </div>
+        <p class="hero-intro">
+          A permanent index of systems built, observed, documented and published—across
+          industrial practice, software engineering, infrastructure, applied AI and the field.
+        </p>
       </div>
-
-      <p class="hero-intro">
-        A permanent index of systems built, observed, documented and published—across
-        industrial practice, software engineering, infrastructure, applied AI and the field.
-      </p>
     </div>
+    <figure class="hero-image">
+      <img src={media.hero.src} alt={media.hero.alt} fetchpriority="high" decoding="async" />
+      <figcaption>PHYSICAL SYSTEMS / DIGITAL SYSTEMS / FIELD PRACTICE</figcaption>
+    </figure>
   </section>
 
   <section class="section section--paper" id="selected-work">
@@ -62,8 +59,31 @@ const selectedProjects = featuredProjects.length ? featuredProjects : projects;
         </p>
       </header>
 
-      <div class="project-sequence">
-        {selectedProjects.map((project, index) => <ProjectRow project={project} index={index} />)}
+      <div class="featured-work-grid">
+        {selectedProjects.map((project, index) => {
+          const image = media.projects[project.slug];
+         if (!image) return null;
+          return (
+            <article class="featured-work">
+              <a class="featured-work-image" href={`/work/${project.slug}/`}>
+                <img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+              </a>
+              <div class="featured-work-copy">
+                <div class="featured-work-meta">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <span>{project.status}</span>
+                </div>
+                <h3><a href={`/work/${project.slug}/`}>{project.title}</a></h3>
+                <p>{project.summary}</p>
+                <div class="featured-work-links">
+                  <a href={`/work/${project.slug}/`}>PROJECT RECORD ↗</a>
+                  {image.href && <a href={image.href}>LIVE ↗</a>}
+                  {image.demoHref && <a href={image.demoHref}>DEMO ↗</a>}
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
 
       <a class="explore-link" href="/work/">
@@ -136,22 +156,16 @@ const selectedProjects = featuredProjects.length ? featuredProjects : projects;
           engineering record. Original photography is treated as evidence, not decoration.
         </p>
       </header>
-
-      {editorialImages.length > 0 ? (
-        <div class="editorial-grid">
-          {editorialImages.map((image) => (
-            <figure class="editorial-plate">
-              <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
-              <figcaption>{image.caption}</figcaption>
-            </figure>
-          ))}
-        </div>
-      ) : (
-        <div class="image-reserve">
-          <span>PHOTOGRAPHIC LAYER READY<br />CURATED ORIGINALS PUBLISH FROM ~/Pictures/tb-000-curated</span>
-        </div>
-      )}
-
+      <div class="home-field-plates">
+        <figure class="home-field-plate home-field-plate--wide">
+          <img src={media.field[0].src} alt={media.field[0].alt} loading="lazy" decoding="async" />
+          <figcaption>{media.field[0].caption}</figcaption>
+        </figure>
+        <figure class="home-field-plate home-field-plate--portrait">
+          <img src={media.field[1].src} alt={media.field[1].alt} loading="lazy" decoding="async" />
+          <figcaption>{media.field[1].caption}</figcaption>
+        </figure>
+      </div>
       <a class="explore-link" href="/photography/">
         <span>OPEN PHOTOGRAPHY</span><span>↗</span>
       </a>
@@ -159,8 +173,14 @@ const selectedProjects = featuredProjects.length ? featuredProjects : projects;
   </section>
 
   <section class="section closing-statement">
-    <div class="shell closing-grid">
-      <span class="eyebrow">SYSTEMS / 2026</span>
+    <div class="shell closing-grid closing-grid--portrait">
+      <div class="identity-mark">
+        <img src={media.portrait.src} alt={media.portrait.alt} loading="lazy" decoding="async" />
+        <div>
+          <span class="eyebrow">TYSON BARNES / SYSTEMS / 2026</span>
+          <a href="/about/">ABOUT / PRACTICE ↗</a>
+        </div>
+      </div>
       <p>
         The medium changes. The method does not: understand the system, expose its state, reduce
         unnecessary complexity, and build something that can be operated.

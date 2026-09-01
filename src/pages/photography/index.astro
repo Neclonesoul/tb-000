@@ -1,15 +1,51 @@
 ---
 import BaseLayout from '@/components/BaseLayout.astro';
-const groups = ['FIELD', 'MACHINES', 'PEOPLE', 'PLACES', 'EXPERIMENTAL'];
+import { media } from '@/data/media';
+
+const [galaxy, kjv] = media.field;
 ---
-<BaseLayout title="Photography" description="Photography as field observation and technical record.">
-  <header class="page-intro"><div class="shell page-intro-grid">
-    <div><span class="record-number">PHOTOGRAPHY / ARCHIVE</span><h1>VISUAL<br />RECORDS</h1></div>
-    <p>Photography is treated as evidence and observation. The archive structure is ready; original files will be published without stock or invented substitutes.</p>
-  </div></header>
-  <div class="shell section">
-    <div class="image-reserve">PHOTOGRAPHIC ARCHIVE<br />AWAITING ORIGINAL, SELECTED FILES</div>
-    <div class="manifest">{groups.map((group) => <section><span class="eyebrow">GROUP</span><h2>{group}</h2><p class="meta">NO PUBLIC SELECTION YET</p></section>)}</div>
-    <a class="explore-link" href="https://insta.tysonbarnes.co.uk"><span>OPEN ACTIVE PHOTOGRAPHY SITE</span><span>↗</span></a>
-  </div>
+
+<BaseLayout>
+  <main class="photo-monograph">
+    <header class="photo-monograph-head shell">
+      <div>
+        <span class="eyebrow">PHOTOGRAPHY / FIELD RECORD</span>
+        <h1>THE<br />OBSERVED<br />WORLD.</h1>
+      </div>
+      <div class="photo-monograph-intro">
+        <p>
+          A photographic record rather than a conventional portfolio. Images are retained because
+          they document a place, system, object, condition or observation worth keeping.
+        </p>
+        <p class="meta">ORIGINAL PHOTOGRAPHY / CURATED DERIVATIVES / NO STOCK IMAGERY</p>
+      </div>
+    </header>
+
+    <section class="photo-spread photo-spread--landscape shell">
+      <figure>
+        <img src={galaxy.src} alt={galaxy.alt} loading="eager" decoding="async" />
+        <figcaption><span>01 / FIELD</span><span>{galaxy.caption}</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="photo-spread photo-spread--portrait shell">
+      <div class="photo-note">
+        <span class="eyebrow">FIELD NOTE / 02</span>
+        <p>
+          Not every image needs the ceremony of an essay. Some deserve more than a log entry:
+          a visual record, enough context, and room to be looked at.
+        </p>
+      </div>
+      <figure>
+        <img src={kjv.src} alt={kjv.alt} loading="lazy" decoding="async" />
+        <figcaption><span>02 / FIELD</span><span>{kjv.caption}</span></figcaption>
+      </figure>
+    </section>
+
+    <nav class="photo-monograph-exits shell" aria-label="Photography related sections">
+      <a href="/field/"><span>FIELD RECORDS</span><span>↗</span></a>
+      <a href="/work/"><span>ENGINEERED SYSTEMS</span><span>↗</span></a>
+      <a href="/about/"><span>ABOUT THE PRACTICE</span><span>↗</span></a>
+    </nav>
+  </main>
 </BaseLayout>

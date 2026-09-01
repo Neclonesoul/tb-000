@@ -4,8 +4,8 @@ title: "ANDAMP"
 slug: "andamp"
 year: 2026
 type: "ANDROID AUDIO SYSTEM"
-status: "PUBLIC"
-featured: true
+status: "IN DEVELOPMENT"
+featured: false
 summary: "A native Android music system built around authoritative playback, media-session integration and a dense instrument-like interface."
 description: "ANDAMP combines Android-native playback infrastructure with a carefully designed player surface, library management, queue control and system-level media integration."
 technologies: ["Android", "Kotlin", "Media3", "ExoPlayer", "TypeScript"]
@@ -21,3 +21,7 @@ ANDAMP treats music playback as a system service rather than a decorative applic
 ## Architecture
 
 Native Android playback remains authoritative while the interface is designed for fast, low-friction operation across the handset, notification surface, headset controls and future vehicle integration.
+
+## Current state
+
+ANDAMP is in active development. It is documented here as ongoing engineering work rather than presented as a hosted public service.

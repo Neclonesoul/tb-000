@@ -4,8 +4,8 @@ title: "AFRICALC"
 slug: "africalc"
 year: 2026
 type: "MATHEMATICAL WORKSTATION"
-status: "PUBLIC"
-featured: true
+status: "IN DEVELOPMENT"
+featured: false
 summary: "An African-designed calculator and mathematical workstation combining exact arithmetic, engineering tools and retro-computing character."
 description: "AFRICALC is a serious mathematical instrument presented as a lost African microcomputer: scientific calculation, engineering conversion, financial mathematics, graphing and equation work in one offline-capable system."
 technologies: ["TypeScript", "Astro", "Svelte", "PWA", "Cloudflare Workers"]
@@ -21,3 +21,7 @@ AFRICALC is designed as a tool first: deterministic calculation, exact arithmeti
 ## Character
 
 Its visual language draws from African retro-futurism and 1980s microcomputing rather than contemporary generic calculator design.
+
+## Current state
+
+AFRICALC is in active development. It is not currently presented as a hosted Cloudflare service.
