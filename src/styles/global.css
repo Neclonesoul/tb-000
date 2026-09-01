@@ -2011,3 +2011,88 @@ body::before {
     inline-size: 7rem;
   }
 }
+
+/* === ABOUT / EXPERIENCE LEDGER / 2026-09-01 =========================== */
+
+.career-ledger {
+  display: grid;
+  grid-template-columns: minmax(15rem, .72fr) minmax(0, 1.55fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: start;
+}
+
+.career-ledger > header {
+  position: sticky;
+  top: clamp(5rem, 9vw, 7rem);
+}
+
+.career-ledger > header h2 {
+  margin-block: .8rem 0;
+}
+
+.career-ledger > div {
+  border-block-start: 1px solid var(--color-rule);
+}
+
+.career-ledger article {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, .62fr) minmax(12rem, 1.15fr) minmax(15rem, 1.5fr);
+  gap: clamp(1.25rem, 2.5vw, 2.75rem);
+  align-items: start;
+  padding-block: clamp(1.6rem, 2.5vw, 2.4rem);
+  border-block-end: 1px solid var(--color-rule);
+}
+
+.career-ledger article .meta {
+  margin: .2rem 0 0;
+  white-space: nowrap;
+}
+
+.career-ledger article h3 {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.45vw, 1.4rem);
+  line-height: 1.15;
+}
+
+.career-ledger article p {
+  margin: 0;
+  max-inline-size: 38rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 1000px) {
+  .career-ledger {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .career-ledger > header {
+    position: static;
+  }
+
+  .career-ledger article {
+    grid-template-columns: minmax(7rem, .5fr) minmax(12rem, 1fr) minmax(14rem, 1.35fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .career-ledger article {
+    grid-template-columns: minmax(7rem, .45fr) minmax(0, 1fr);
+    gap: .75rem 1.5rem;
+  }
+
+  .career-ledger article p {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .career-ledger article {
+    grid-template-columns: 1fr;
+    gap: .7rem;
+  }
+
+  .career-ledger article p {
+    grid-column: auto;
+  }
+}
