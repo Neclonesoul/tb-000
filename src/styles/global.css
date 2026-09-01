@@ -2096,3 +2096,126 @@ body::before {
     grid-column: auto;
   }
 }
+
+/* === MOBILE DENSITY + TOUCH QA / 2026-09-01 =========================== */
+/* Desktop remains unchanged. */
+
+@media (max-width: 600px) {
+  /* Keep section rhythm deliberate without desktop-scale empty space. */
+  .section {
+    padding-block: clamp(3rem, 11vw, 4.25rem);
+  }
+
+  .page-intro {
+    padding-block: clamp(3rem, 11vw, 4.5rem);
+  }
+
+  /* Metadata must remain small, but readable on a phone. */
+  .eyebrow,
+  .record-number,
+  .meta,
+  .social-rail-label {
+    line-height: 1.35;
+  }
+
+  /* Six destinations remain available without forcing page overflow. */
+  .header-inner {
+    min-inline-size: 0;
+  }
+
+  .primary-nav {
+    min-inline-size: 0;
+    overscroll-behavior-inline: contain;
+  }
+
+  .primary-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+    flex: 0 0 auto;
+  }
+
+  .palette-trigger {
+    min-block-size: 2.75rem;
+  }
+
+  /* About profile: compact identity stack. */
+  .page-intro-grid--profile {
+    gap: 2rem;
+  }
+
+  .about-intro-profile {
+    gap: 1rem;
+  }
+
+  .about-intro-profile img {
+    inline-size: 6.5rem;
+  }
+
+  /* Dense career ledger while preserving hierarchy. */
+  .career-ledger {
+    gap: 2rem;
+  }
+
+  .career-ledger article {
+    padding-block: 1.35rem;
+  }
+
+  .career-ledger article h3 {
+    line-height: 1.12;
+  }
+
+  /* Footer/social controls become compact, reliable touch targets. */
+  .site-footer .footer-grid {
+    gap: 1.75rem;
+  }
+
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+  }
+
+  .social-rail {
+    padding-block: 1.5rem;
+  }
+
+  .social-link {
+    min-block-size: 3.75rem;
+    padding-block: .8rem;
+  }
+
+  .social-icon {
+    inline-size: 2rem;
+    block-size: 2rem;
+  }
+
+  .social-copy strong {
+    font-size: .75rem;
+  }
+
+  .social-copy small {
+    font-size: .67rem;
+  }
+
+  /* Defensive overflow guards for long technical content. */
+  main,
+  .shell,
+  .page-intro-grid,
+  .about-ledger,
+  .capability-ledger,
+  .career-ledger,
+  .footer-grid,
+  .social-links {
+    min-inline-size: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  a,
+  span {
+    overflow-wrap: break-word;
+  }
+}
