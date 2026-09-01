@@ -1,6 +1,34 @@
 ---
 import { SITE } from '@/lib/site';
+
+const socials = [
+  {
+    key: 'x',
+    label: 'X',
+    handle: '@tysonbarnes',
+    href: SITE.socials.x
+  },
+  {
+    key: 'youtube',
+    label: 'YouTube',
+    handle: '@TysonBarnesOfficial',
+    href: SITE.socials.youtube
+  },
+  {
+    key: 'instagram',
+    label: 'Instagram',
+    handle: '@barnestd2169',
+    href: SITE.socials.instagram
+  },
+  {
+    key: 'flickr',
+    label: 'Flickr',
+    handle: 'tysonbarnes',
+    href: SITE.socials.flickr
+  }
+] as const;
 ---
+
 <footer class="site-footer">
   <div class="shell footer-grid">
     <div>
@@ -8,16 +36,70 @@ import { SITE } from '@/lib/site';
       <p class="footer-statement">Engineering the physical &amp; digital world.</p>
       <p class="meta">{SITE.location}</p>
     </div>
+
     <nav aria-label="Secondary navigation" class="footer-links">
       <a href={SITE.github}>GitHub</a>
       <a href={SITE.email}>Email</a>
       <a href="/rss.xml">RSS</a>
       <a href="/terminal/">Terminal</a>
     </nav>
+
     <div class="footer-system" aria-label="Site information">
       <span>TB–000</span>
       <span>BUILT WITH ASTRO</span>
       <span>NO TRACKERS</span>
     </div>
+  </div>
+
+  <div class="shell social-rail" aria-label="Social profiles">
+    <span class="social-rail-label">ELSEWHERE / PUBLIC SIGNAL</span>
+
+    <nav class="social-links">
+      {socials.map((social) => (
+        <a
+          class={`social-link social-link--${social.key}`}
+          href={social.href}
+          target="_blank"
+          rel="me noopener noreferrer"
+          aria-label={`${social.label} — ${social.handle}`}
+        >
+          <span class="social-icon" aria-hidden="true">
+            {social.key === 'x' && (
+              <svg viewBox="0 0 24 24" role="img">
+                <path d="M4.4 3.5h4.7l3.6 5.1 4.4-5.1h2.2l-5.6 6.6 6 8.4H15l-4-5.7-4.8 5.7H4l6-7.1-5.6-7.9Zm3.6 1.8 8.1 11.4h1.9L9.9 5.3H8Z" />
+              </svg>
+            )}
+
+            {social.key === 'youtube' && (
+              <svg viewBox="0 0 24 24" role="img">
+                <path d="M21 7.1a2.8 2.8 0 0 0-2-2C17.2 4.6 12 4.6 12 4.6s-5.2 0-7 .5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2.5 12 29 29 0 0 0 3 16.9a2.8 2.8 0 0 0 2 2c1.8.5 7 .5 7 .5s5.2 0 7-.5a2.8 2.8 0 0 0 2-2 29 29 0 0 0 .5-4.9 29 29 0 0 0-.5-4.9ZM10.1 15.5v-7l6 3.5-6 3.5Z" />
+              </svg>
+            )}
+
+            {social.key === 'instagram' && (
+              <svg viewBox="0 0 24 24" role="img">
+                <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="4.1" />
+                <circle cx="17.7" cy="6.8" r="1" class="social-icon-dot" />
+              </svg>
+            )}
+
+            {social.key === 'flickr' && (
+              <svg viewBox="0 0 24 24" role="img">
+                <circle cx="7.5" cy="12" r="4" class="flickr-dot flickr-dot--left" />
+                <circle cx="16.5" cy="12" r="4" class="flickr-dot flickr-dot--right" />
+              </svg>
+            )}
+          </span>
+
+          <span class="social-copy">
+            <strong>{social.label}</strong>
+            <small>{social.handle}</small>
+          </span>
+
+          <span class="social-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </nav>
   </div>
 </footer>

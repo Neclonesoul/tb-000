@@ -27,8 +27,6 @@ const imageUrl = canonical(image);
 const projects = sortProjects(await getCollection('projects')).map(toPublicProject);
 const paletteItems = [
   ...primaryNav.map((item) => ({ label: item.label, detail: 'SECTION', href: item.href })),
-  { label: 'SYSTEMS', detail: 'SECTION', href: '/systems/' },
-  { label: 'PHOTOGRAPHY', detail: 'SECTION', href: '/photography/' },
   { label: 'TERMINAL', detail: 'INSTRUMENT', href: '/terminal/' },
   ...projects.map((project) => ({ label: project.title, detail: `${project.id} / ${project.status}`, href: project.href }))
 ];
@@ -37,7 +35,13 @@ const structured = {
   '@type': 'Person',
   name: SITE.name,
   url: SITE.url,
-  sameAs: [SITE.github],
+  sameAs: [
+    SITE.github,
+    SITE.socials.x,
+    SITE.socials.youtube,
+    SITE.socials.instagram,
+    SITE.socials.flickrProfile
+  ],
   knowsAbout: ['Industrial automation', 'Software systems', 'Linux', 'Web publishing', 'Photography']
 };
 ---
