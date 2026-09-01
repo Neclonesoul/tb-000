@@ -2360,3 +2360,43 @@ body::before {
     margin-block-end: .25rem;
   }
 }
+
+/* === HOMEPAGE HERO / MOBILE WORD INTEGRITY === */
+@media (max-width: 600px) {
+  .hero--editorial h1 {
+    font-size: clamp(3.15rem, 14.5vw, 4.5rem);
+    line-height: .88;
+    letter-spacing: -.055em;
+  }
+
+  .hero--editorial h1 span {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+/* === HOMEPAGE HERO / FINAL MOBILE TYPE FIT === */
+@media (max-width: 600px) {
+  .hero--editorial h1 {
+    font-size: clamp(2.85rem, 13.2vw, 4.1rem);
+    line-height: .88;
+    letter-spacing: -.055em;
+    max-inline-size: 100%;
+  }
+
+  .hero--editorial h1 span {
+    display: block;
+    white-space: normal;
+  }
+
+  .hero--editorial .line-3 {
+    max-inline-size: 7.5ch;
+  }
+}
+
+/* Keep the final hero phrase as "& DIGITAL" / "WORLD." on mobile. */
+@media (max-width: 600px) {
+  .hero--editorial .line-3 {
+    max-inline-size: 9.5ch;
+  }
+}
