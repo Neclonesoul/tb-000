@@ -1923,3 +1923,9 @@ body::before {
     border-block-end: 0;
   }
 }
+
+/* X requires a luminous interaction colour on the TB-000 dark field. */
+.social-link--x {
+  --social-accent: #38d9ff;
+}
+
