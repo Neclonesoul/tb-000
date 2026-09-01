@@ -1929,3 +1929,85 @@ body::before {
   --social-accent: #38d9ff;
 }
 
+
+/* === IDENTITY CLOSING + ABOUT PORTRAIT / 2026-09-01 =================== */
+
+.closing-statement {
+  padding-block: clamp(3.5rem, 6vw, 6rem);
+}
+
+.closing-grid--portrait {
+  display: grid;
+  grid-template-columns: minmax(15rem, .72fr) minmax(0, 1.28fr);
+  align-items: end;
+  gap: clamp(2.5rem, 6vw, 7rem);
+}
+
+.closing-grid--portrait .identity-mark {
+  align-self: start;
+}
+
+.closing-grid--portrait > p {
+  margin: 0;
+  max-inline-size: 31ch;
+  font-size: clamp(1.7rem, 2.55vw, 3rem);
+  line-height: 1.34;
+  text-wrap: balance;
+}
+
+.page-intro-grid--profile {
+  align-items: end;
+}
+
+.about-intro-profile {
+  display: grid;
+  grid-template-columns: clamp(7rem, 10vw, 9.5rem) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+  min-inline-size: 0;
+}
+
+.about-intro-profile img {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+}
+
+.about-intro-profile p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .closing-grid--portrait {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .closing-grid--portrait > p {
+    max-inline-size: 34ch;
+  }
+
+  .about-intro-profile {
+    grid-template-columns: clamp(6.5rem, 18vw, 8.5rem) minmax(0, 1fr);
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .closing-statement {
+    padding-block: 3rem;
+  }
+
+  .about-intro-profile {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .about-intro-profile img {
+    inline-size: 7rem;
+  }
+}

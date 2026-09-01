@@ -1,16 +1,26 @@
 ---
 import BaseLayout from '@/components/BaseLayout.astro';
+import { media } from '@/data/media';
 ---
 
 <BaseLayout>
     <section class="page-intro shell">
       <span class="record-number">TB / PROFILE / 2026</span>
-      <div class="page-intro-grid">
+      <div class="page-intro-grid page-intro-grid--profile">
         <h1>SYSTEMS<br />ACROSS<br />DOMAINS.</h1>
-        <p>
-          Tyson Barnes is a systems engineer and systems architect working across physical,
-          computational, operational and observational systems.
-        </p>
+
+        <div class="about-intro-profile">
+          <img
+            src={media.portrait.src}
+            alt={media.portrait.alt}
+            loading="eager"
+            decoding="async"
+          />
+          <p>
+            Tyson Barnes is a systems engineer and systems architect working across physical,
+            computational, operational and observational systems.
+          </p>
+        </div>
       </div>
     </section>
 
