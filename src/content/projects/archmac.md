@@ -14,10 +14,6 @@ systemNodes: ["physical", "computational", "published"]
 order: 5
 ---
 
-## ARCHMAC
-
-A sovereign professional workstation engineered around flow, ownership and deliberate constraint.
-
 ARCHMAC began with an ordinary constraint: a MacBook Pro from 2012.
 
 The useful engineering question was not whether old hardware could be made to imitate a modern workstation. It was whether the machine could be reduced, understood and deliberately configured until the remaining system was capable of serious professional work without unnecessary abstraction between the operator and the computer.
@@ -27,8 +23,6 @@ The result is not an exercise in retro-computing and not a themed Linux installa
 ARCHMAC is the workstation itself treated as an engineered system.
 
 Its operating system, boot path, window management, applications, configuration, recovery strategy, project history and working doctrine are considered parts of the same machine.
-
----
 
 ## Machine
 
@@ -58,7 +52,6 @@ There is little incentive to hide inefficient software behind surplus compute. R
 
 The constraint encourages architectural discipline.
 
----
 
 ## Problem
 
@@ -84,9 +77,10 @@ Performance matters, but responsiveness alone is not the target.
 
 The larger target is **low-friction professional operation**.
 
----
 
-## Design principle
+## Operating doctrine
+
+### Design principle
 
 The governing principle is Via Negativa:
 
@@ -112,9 +106,10 @@ Minimalism is therefore not an aesthetic target.
 
 It is an operational property.
 
----
 
-## Boot architecture
+## System architecture
+
+### Boot architecture
 
 ARCHMAC does not treat boot configuration as disposable installation machinery.
 
@@ -136,9 +131,8 @@ A successful package transaction is not considered proof of a bootable machine.
 
 The boot artefacts themselves are the evidence.
 
----
 
-## Inspect before modify
+### Inspect before modify
 
 ARCHMAC maintenance follows a simple engineering rule:
 
@@ -170,9 +164,8 @@ It is considerably faster than repairing an incorrectly modified workstation rep
 
 The same discipline is used in ARCHMAC automation and in the associated ArchPilot tooling: establish evidence, classify risk, perform the smallest justified operation, then verify the resulting state.
 
----
 
-## Hyprland
+### Hyprland
 
 Hyprland is used because the workstation is organised around windows as working objects rather than applications as destinations.
 
@@ -190,9 +183,8 @@ Other functions can remain independent.
 
 This separation is intentional.
 
----
 
-## Galaxy
+### Galaxy
 
 ARCHMAC's desktop shell is a Quickshell system called **Galaxy**.
 
@@ -216,9 +208,10 @@ Galaxy is therefore closer to an instrument panel than a conventional desktop sh
 
 The underlying Linux system remains independently operable.
 
----
 
-## Kitty
+## Working environment
+
+### Kitty
 
 Kitty is the principal terminal surface.
 
@@ -234,9 +227,8 @@ A command can often express an operation more directly than navigating several l
 
 That property compounds over time.
 
----
 
-## Vim
+### Vim
 
 Vim is the primary editor because text is one of the workstation's most important universal interfaces.
 
@@ -250,9 +242,8 @@ The advantage within ARCHMAC is that one deeply learned editor replaces several 
 
 That is Via Negativa applied to text manipulation.
 
----
 
-## Why not an IDE?
+### Why not an IDE?
 
 ARCHMAC does not prohibit integrated development environments.
 
@@ -277,9 +268,8 @@ For projects where an IDE provides a genuine technical advantage, it can still b
 
 It is a tool, not an architectural dependency.
 
----
 
-## Git as durable history
+### Git as durable history
 
 Git is not used merely as an upload mechanism for GitHub.
 
@@ -301,9 +291,8 @@ Remote repositories provide an additional copy of important project history.
 
 This makes aggressive iteration safer because the path backwards remains explicit.
 
----
 
-## GitHub
+### GitHub
 
 GitHub provides the external engineering layer around the local machine.
 
@@ -323,9 +312,8 @@ The workstation therefore does not need to contain every piece of organisational
 
 It needs to contain enough information to reproduce and continue the work.
 
----
 
-## Keyboard-first operation
+### Keyboard-first operation
 
 ARCHMAC is designed around the fact that professional computer work contains thousands of tiny interface transitions.
 
@@ -363,9 +351,10 @@ The rule is simpler:
 
 For repeated symbolic operations, that is frequently the keyboard.
 
----
 
-## Software economy
+## Operational economy
+
+### Software economy
 
 Every permanently installed application increases the state space of the workstation.
 
@@ -389,9 +378,8 @@ This is especially important on constrained hardware, but the principle remains 
 
 Additional compute should increase productive capacity rather than merely subsidise inefficient software.
 
----
 
-## Publishing toolchain
+### Publishing toolchain
 
 ARCHMAC is also the machine from which this record is produced.
 
@@ -416,7 +404,7 @@ If publishing an ordinary System or Note requires changing routing, layout archi
 
 The boring publishing path is a feature.
 
-## Development from constrained hardware
+### Development from constrained hardware
 
 ARCHMAC has been used as a real development workstation rather than a demonstration environment.
 
@@ -442,7 +430,9 @@ A minimal desktop that merely looks controlled is not especially useful.
 
 The system must produce.
 
-## Reproducibility
+## Reliability and recovery
+
+### Reproducibility
 
 Perfect workstation reproducibility is difficult because a personal computer includes hardware state, firmware, network services, credentials and other external dependencies.
 
@@ -462,7 +452,7 @@ The target is not a magical command that recreates every electron on the machine
 
 The target is sufficient evidence that the workstation can be understood, repaired and reconstructed without relying on memory.
 
-## Security
+### Security
 
 Sovereignty does not mean running everything as root.
 
@@ -478,7 +468,7 @@ Changes to sensitive system areas receive more inspection than routine user-leve
 
 Security is treated as another form of system legibility: the operator should know what authority a component possesses and why.
 
-## Recovery
+### Recovery
 
 A workstation that cannot survive maintenance is not sovereign.
 
@@ -498,7 +488,7 @@ The goal is not immunity from failure.
 
 It is bounded failure.
 
-## Why preserve macOS and EFI?
+### Why preserve macOS and EFI?
 
 Erasing the original environment would have simplified the disk superficially while removing a useful recovery path and part of the machine's native architecture.
 
@@ -512,7 +502,9 @@ The unused system does not need to dominate daily operation merely because it st
 
 Preservation and dependence are different things.
 
-## Why an old MacBook?
+## Constraint and transferability
+
+### Why an old MacBook?
 
 Because capability is not proportional to hardware age.
 
@@ -530,7 +522,7 @@ Unnecessary layers are noticeable.
 
 The hardware therefore provides immediate feedback about software architecture.
 
-## Where it is not enough
+### Where it is not enough
 
 Deliberate constraint should not become romantic attachment to insufficient hardware.
 
@@ -552,7 +544,7 @@ The workstation doctrine can move to a faster machine without preserving the old
 
 ARCHMAC is an architecture before it is a particular laptop.
 
-## Transferability
+### Transferability
 
 The eventual successor to this MacBook can have more cores, more memory, faster storage and a larger display without becoming a heavier workstation.
 
@@ -572,41 +564,42 @@ It should not require abandoning the principles learned under constraint.
 A faster ARCHMAC should feel like the same instrument with a larger operating range.
 
 ## Engineering decisions
-## Why Arch Linux?
+
+### Why Arch Linux?
 
 Because the system can be assembled deliberately from understandable components while remaining close to upstream Linux software.
 
 The installation contains what the workstation requires rather than inheriting an entire predetermined desktop stack.
 
-## Why Hyprland?
+### Why Hyprland?
 
 Because automatic tiling, workspaces and keyboard-driven window control reduce repeated desktop manipulation while retaining a modern Wayland environment.
 
-## Why Vim?
+### Why Vim?
 
 Because one composable editor can cover most textual engineering work and rewards deep familiarity rather than application switching.
 
-## Why Kitty?
+### Why Kitty?
 
 Because the terminal remains the common control surface for development, administration, inspection, automation and publishing.
 
-## Why minimal resident software?
+### Why minimal resident software?
 
 Because every persistent component consumes resources, creates state, expands failure modes and demands future maintenance.
 
-## Why Git?
+### Why Git?
 
 Because experimentation is safer when important state has inspectable history and explicit restoration points.
 
-## Why inspect before modify?
+### Why inspect before modify?
 
 Because the running machine is evidence. Generic assumptions are not.
 
-## Why preserve the original boot environment?
+### Why preserve the original boot environment?
 
 Because deleting a functioning recovery path provides little benefit and unnecessarily destroys optionality.
 
-## Why build Galaxy?
+### Why build Galaxy?
 
 Because useful graphical instrumentation can be added without surrendering the underlying machine to a monolithic desktop environment.
 
@@ -638,7 +631,7 @@ Publishing follows a standard path.
 
 The computer becomes less of a destination and more of an instrument through which work passes.
 
-## Current doctrine
+## Operating rules
 
 ARCHMAC can be summarised by a small set of rules:
 
