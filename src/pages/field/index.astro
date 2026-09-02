@@ -1,18 +1,112 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/components/BaseLayout.astro';
-const records = (await getCollection('field')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const records = (await getCollection('field'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categories = [...new Set(records.map((record) => record.data.category))];
+const locations = [...new Set(records.map((record) => record.data.location))];
 ---
-<BaseLayout title="Field Notes from Africa" description="Photography, engineering, natural history, design and writing from the field.">
-  <header class="page-intro"><div class="shell page-intro-grid">
-    <div><span class="record-number">FIELD / OBSERVATION</span><h1>FIELD NOTES<br />FROM AFRICA</h1></div>
-    <p>Photography · Engineering · Natural History · Design · Writing. Records are published only when the observation and original media are available.</p>
-  </div></header>
-  <div class="shell archive-grid">
-    {records.map((record) => <a class="archive-record" href={`/field/${record.id}/`} transition:name={`field-${record.id}`}>
-      <span class="eyebrow">{record.data.id} / {record.data.category}</span>
-      <div><h2>{record.data.title}</h2><p>{record.data.location}</p><span class="meta">{record.data.date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</span></div>
-    </a>)}
-  </div>
-  <div class="shell"><a class="explore-link" href="/field/rss.xml"><span>FIELD RSS</span><span>↗</span></a></div>
+
+<BaseLayout
+  title="Field / Observational Record"
+  description="Field observations by Tyson Barnes: physical systems, objects, organisms, environments and phenomena recorded from direct observation."
+>
+  <header class="page-intro field-intro">
+    <div class="shell page-intro-grid">
+      <div>
+        <span class="record-number">FIELD / OBSERVATIONAL RECORD</span>
+        <h1>OBSERVE<br />FIRST.</h1>
+      </div>
+
+      <div class="field-intro-copy">
+        <p>
+          Field records of physical systems, objects, organisms,
+          environments and phenomena. A record is published only when
+          there is something worth preserving: an observation, original
+          evidence and enough context to make it useful.
+        </p>
+
+        <dl class="field-index-meta">
+          <div>
+            <dt>RECORDS</dt>
+            <dd>{String(records.length).padStart(2, '0')}</dd>
+          </div>
+          <div>
+            <dt>CLASSES</dt>
+            <dd>{String(categories.length).padStart(2, '0')}</dd>
+          </div>
+          <div>
+            <dt>LOCATIONS</dt>
+            <dd>{String(locations.length).padStart(2, '0')}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <section class="field-register" aria-labelledby="field-register-title">
+    <div class="shell">
+      <header class="field-register-head">
+        <div>
+          <span class="eyebrow">DIRECT OBSERVATION</span>
+          <h2 id="field-register-title">FIELD<br />REGISTER</h2>
+        </div>
+
+        <p>
+          These are records, not posts. Dates, places and classifications
+          are retained so observations remain attributable to a physical
+          context rather than becoming detached images or commentary.
+        </p>
+      </header>
+
+      <ol class="field-record-list">
+        {records.map((record) => (
+          <li>
+            <a
+              class="field-record"
+              href={`/field/${record.id}/`}
+              transition:name={`field-${record.id}`}
+            >
+              <div class="field-record-id">
+                <span>{record.data.id}</span>
+                <small>
+                  {record.data.date.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
+                  })}
+                </small>
+              </div>
+
+              <div class="field-record-title">
+                <span class="eyebrow">{record.data.category}</span>
+                <h3>{record.data.title}</h3>
+              </div>
+
+              <div class="field-record-place">
+                <span>LOCATION</span>
+                <strong>{record.data.location}</strong>
+              </div>
+
+              <span class="field-record-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+
+      <div class="field-register-footer">
+        <p>
+          The register grows from actual field material. Missing photographs
+          and evidence are not substituted with stock imagery.
+        </p>
+
+        <a class="explore-link" href="/field/rss.xml">
+          <span>FIELD RSS</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
