@@ -658,3 +658,120 @@ The result is a coherent working environment in which boot architecture, desktop
 The hardware is constrained.
 
 The operating model is not.
+
+<style>
+/* ARCHMAC-PAGE-FORMAT-V2 */
+
+/* Technical dossier body — not an oversized editorial article */
+main p {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.65;
+  max-width: 72ch;
+  margin-block: 0 1rem;
+}
+
+/* Major record divisions */
+main h2 {
+  font-family: ui-monospace, monospace;
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1.2;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin: 4rem 0 1rem;
+  padding-top: .8rem;
+  border-top: 1px solid rgb(255 255 255 / 14%);
+}
+
+/* Subsections */
+main h3 {
+  font-family: ui-monospace, monospace;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.3;
+  margin: 2.2rem 0 .65rem;
+}
+
+/* Compact technical data */
+main table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 1rem 0 2rem;
+}
+
+main th,
+main td {
+  padding: .55rem .65rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgb(255 255 255 / 12%);
+}
+
+main th {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+/* Lists */
+main li {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.6;
+  margin-block: .25rem;
+}
+
+/* Code remains technical */
+main pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* PHONE */
+@media (max-width: 700px) {
+  main h1 {
+    font-size: clamp(40px, 12vw, 54px);
+    line-height: .95;
+    margin-bottom: 1.25rem;
+  }
+
+  main p {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 100%;
+    margin-bottom: .85rem;
+  }
+
+  main h2 {
+    font-size: 18px;
+    margin-top: 3rem;
+    margin-bottom: .85rem;
+  }
+
+  main h3 {
+    font-size: 15px;
+    margin-top: 1.8rem;
+  }
+
+  main table {
+    display: block;
+    overflow-x: auto;
+    font-size: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  main th,
+  main td {
+    padding: .45rem .5rem;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1000px) {
+  main p {
+    font-size: 17px;
+  }
+}
+</style>
