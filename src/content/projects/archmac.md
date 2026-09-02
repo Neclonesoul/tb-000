@@ -403,6 +403,7 @@ The publication layer renders it.
 If publishing an ordinary System or Note requires changing routing, layout architecture, navigation or application code, that is treated as a defect in the publishing system.
 
 The boring publishing path is a feature.
+```
 
 ### Development from constrained hardware
 
