@@ -41,7 +41,19 @@ const related = projects.filter((item) =>
           <span class="status">{project.data.status}</span>
         </div>
 
-        <div class="dossier-lead">
+        {project.data.slug === 'archmac' && (
+  <figure class="archmac-machine-hero">
+    <!-- ARCHMAC-MACHINE-HERO -->
+    <img
+      src="/media/curated/archmac-02.png"
+      alt="ARCHMAC sovereign Linux workstation"
+      loading="eager"
+      decoding="async"
+    />
+  </figure>
+)}
+
+<div class="dossier-lead">
           <div>
             <h1 transition:name={`project-title-${project.data.slug}`}>
               {project.data.title}
