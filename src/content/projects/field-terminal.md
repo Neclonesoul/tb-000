@@ -28,9 +28,9 @@ The curriculum begins with mobile hardware and assumes the learner should be abl
 
 The learning path is arranged in four levels. Each level establishes the tools needed by the next.
 
-01 — Pocket Terminal  
-02 — Publish From Anywhere  
-03 — Field Diagnostics  
+01 — Pocket Terminal
+02 — Publish From Anywhere
+03 — Field Diagnostics
 04 — Physical Computing
 
 ## Build

@@ -17,13 +17,13 @@ But a personal computer is not a mere heap of capabilities. It is an operating e
 
 There is, of course, a better, older, and wiser way. Remove things.
 
-### Via Negativa
+## Via Negativa
 
 *Via negativa* is the ancient and noble pursuit of improvement through subtraction. Instead of asking the modern, grasping question, *"What should I add?"*, one ought to ask: *"What can I ruthlessly eliminate without reducing useful capability?"*
 
 For a serious workstation, this question possesses unusual power. A machine meant for actual, concentrated work spends much of its miserable life mediating between human intention and execution. You decide to write; you must open an editor. You need to inspect a repository; you must summon a terminal. The quality of the workstation is therefore not determined by how many theoretical operations it can perform on paper. It is determined by how little resistance exists between thought and action.
 
-### Fewer Tools, Deeper Tools
+## Fewer Tools, Deeper Tools
 
 Let us make a crucial distinction: there is a vast difference between possessing few tools and being dangerously under-equipped. A proper workstation can remain pleasingly austere precisely because its few remaining tools possess immense, unplumbed depths.
 
@@ -31,13 +31,13 @@ Consider the terminal. It is not merely an 'application' in the trivial, single-
 
 Our objective, therefore, is not to discard powerful tools in a fit of ascetic madness. It is to ruthlessly eliminate the overlapping, the redundant, and the superficial. That distinction matters enormously.
 
-### The Catastrophe of Overlapping Capability
+## The Catastrophe of Overlapping Capability
 
 Imagine the sheer folly of maintaining three separate applications to manage one’s notes. At first glance, to the credulous mind, this appears to increase one’s capabilities. In grim reality, it merely spawns a series of tiresome decisions. Where must this note live? Which version is canonical? Which dreadful cloud service claims ownership of the synchronisation? Which programme must remain installed merely to rescue the information later?
 
 The same miserable problem plagues us when we tolerate multiple file managers, overlapping cloud storage, duplicate development environments, and redundant system monitors. The true cost of this redundancy is not measured in disk space—which is now indecently cheap. The cost is attention.
 
-### Human Time is the Scarce Resource
+## Human Time is the Scarce Resource
 
 Computers have become distressingly fast; storage is inexpensive; memory is absurdly abundant compared to the machines of our youth. Yet human attention remains stubbornly, tragically finite.
 
@@ -45,7 +45,7 @@ This must necessarily change the target of our optimisations. A serious workstat
 
 The most expensive, precious resource in the entire system is the focused, uninterrupted time of the human operator.
 
-### The Disappearing Machine
+## The Disappearing Machine
 
 The ideal workstation, much like a well-trained servant, becomes less noticeable as it improves. Not because the interface becomes literally invisible, but because fewer parts of the machinery selfishly demand attention for themselves.
 
