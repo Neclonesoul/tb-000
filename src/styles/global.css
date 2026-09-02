@@ -2820,3 +2820,75 @@ body::before {
     line-height: 1.62;
   }
 }
+
+/* ================================================================
+   SYSTEM DOSSIER — TABLE + CODE MOBILE FINISH
+   ================================================================ */
+
+/* Technical table headings */
+.dossier-body table thead th {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+}
+
+.dossier-body table tbody td {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+/* Code belongs inside the reading column */
+.dossier-body pre {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dossier-body pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Phone refinement */
+@media (max-width: 560px) {
+  .dossier-body table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .dossier-body table th:first-child,
+  .dossier-body table td:first-child {
+    width: 35%;
+  }
+
+  .dossier-body table th,
+  .dossier-body table td {
+    overflow-wrap: anywhere;
+    padding: .45rem .35rem;
+  }
+
+  .dossier-body table thead th {
+    font-size: .7rem;
+  }
+
+  .dossier-body table tbody td {
+    font-size: .9rem;
+    line-height: 1.4;
+  }
+
+  .dossier-body pre {
+    padding: .85rem;
+    overflow-x: hidden;
+  }
+
+  .dossier-body pre code {
+    font-size: .78rem;
+    line-height: 1.55;
+  }
+}
