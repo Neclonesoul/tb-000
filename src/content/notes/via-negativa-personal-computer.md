@@ -7,8 +7,6 @@ summary: "A personal computer becomes more useful when unnecessary software, hid
 description: "An engineering note on applying via negativa to the personal computer: removing software, background processes, duplication and interface friction until the machine becomes a quieter, more legible instrument."
 tags: ["systems", "linux", "archmac", "workflow", "via-negativa"]
 ---
-# The Via Negativa of the Personal Computer
-
 Most attempts to supposedly 'improve' a modern computer begin, as almost all modern follies do, with mindless addition.
 
 We are endlessly exhorted to add another application. To add another extension. To burden ourselves with another 'productivity' system, another synchronisation service, another background daemon, and yet another layer of opaque automation. Finally, in a stroke of supreme and terrifying absurdity, we are urged to install another dashboard merely to observe the tools we have already added to manage the original tools.
