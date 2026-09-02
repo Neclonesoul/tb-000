@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '@/components/BaseLayout.astro';
+import { media } from '@/data/media';
 import { sortProjects } from '@/lib/projects';
 
 export async function getStaticPaths() {
@@ -14,6 +15,7 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+const projectMedia = media.projects[project.data.slug as keyof typeof media.projects];
 
 const projects = sortProjects(await getCollection('projects'));
 
@@ -50,6 +52,21 @@ const related = projects.filter((item) =>
       loading="eager"
       decoding="async"
     />
+  </figure>
+)}
+
+{projectMedia && (
+  <figure class="system-dossier-hero">
+    <!-- SYSTEM-DOSSIER-HERO -->
+    <img
+      src={projectMedia.src}
+      alt={projectMedia.alt}
+      loading="eager"
+      decoding="async"
+    />
+    {projectMedia.caption && (
+      <figcaption>{projectMedia.caption}</figcaption>
+    )}
   </figure>
 )}
 

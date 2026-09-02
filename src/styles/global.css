@@ -2894,30 +2894,6 @@ body::before {
 }
 
 
-/* ================================================================
-   ARCHMAC — MACHINE HERO
-   ================================================================ */
-
-.archmac-machine-hero {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 100%;
-  min-width: 0;
-  margin: clamp(1.5rem, 3vw, 3rem) 0 clamp(2.5rem, 5vw, 5rem);
-  overflow: visible;
-}
-
-.archmac-machine-hero img {
-  display: block;
-  width: min(88%, 72rem);
-  height: auto;
-  max-width: 100%;
-  object-fit: contain;
-  background: transparent;
-  filter: drop-shadow(0 2rem 3.5rem rgb(0 0 0 / .28));
-}
-
 /* Give the transparent machine a subtle technical field,
    not a card or artificial image background. */
 .archmac-machine-hero::before {
@@ -3124,5 +3100,164 @@ body::before {
     font-size: .67rem;
     line-height: 1.3;
     letter-spacing: .08em;
+  }
+}
+
+
+/* ================================================================
+   SYSTEMS — DOSSIER PUBLICATION STANDARD
+   ================================================================ */
+
+.system-dossier-hero {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  min-width: 0;
+  margin: clamp(1.25rem, 3vw, 2.5rem) 0 clamp(2.5rem, 5vw, 4.5rem);
+  background: transparent;
+}
+
+.system-dossier-hero img {
+  display: block;
+  width: min(92%, 76rem);
+  max-width: 100%;
+  height: auto;
+  max-height: 42rem;
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 2rem 3rem rgb(0 0 0 / .22));
+}
+
+.system-dossier-hero figcaption {
+  justify-self: stretch;
+  margin-block-start: .9rem;
+  padding-block-start: .7rem;
+  border-block-start: 1px solid
+    color-mix(in srgb, var(--color-paper) 16%, transparent);
+  font: 700 var(--step--1)/1.3 var(--font-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  opacity: .58;
+}
+
+/* Metadata should remain compact and subordinate to the record. */
+.dossier-meta {
+  min-width: 0;
+}
+
+.dossier-meta > * {
+  min-width: 0;
+}
+
+/* Body is the authoritative reading surface. */
+.dossier-body {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dossier-body article,
+.dossier-body .prose {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dossier-body h2 {
+  margin-block-start: clamp(3rem, 7vw, 6rem);
+}
+
+.dossier-body h3 {
+  margin-block-start: clamp(2rem, 4vw, 3.5rem);
+}
+
+.dossier-body p,
+.dossier-body li {
+  overflow-wrap: break-word;
+}
+
+.dossier-body img,
+.dossier-body video,
+.dossier-body svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.dossier-body pre {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.dossier-body table {
+  max-width: 100%;
+}
+
+/* Premium wide-screen treatment without turning the page into a poster. */
+@media (min-width: 1200px) {
+  .system-dossier-hero {
+    margin-block: 1.5rem 5rem;
+  }
+
+  .system-dossier-hero img {
+    width: min(86%, 80rem);
+    max-height: 46rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .system-dossier-hero {
+    margin-block: 1rem 2.75rem;
+  }
+
+  .system-dossier-hero img {
+    width: 100%;
+    max-height: 30rem;
+  }
+
+  .system-dossier-hero figcaption {
+    font-size: .68rem;
+  }
+
+  .dossier-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dossier-body > * {
+    min-width: 0;
+    max-width: 100%;
+    grid-column: 1 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .system-dossier-hero {
+    margin-block: .75rem 2.25rem;
+  }
+
+  .system-dossier-hero img {
+    width: 100%;
+    max-height: 22rem;
+  }
+
+  .system-dossier-hero figcaption {
+    margin-block-start: .6rem;
+    padding-block-start: .55rem;
+  }
+
+  .dossier-body p,
+  .dossier-body li {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .dossier-body table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .dossier-body pre {
+    overflow-x: auto;
   }
 }
