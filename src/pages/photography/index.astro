@@ -2,50 +2,94 @@
 import BaseLayout from '@/components/BaseLayout.astro';
 import { media } from '@/data/media';
 
-const [galaxy, kjv] = media.field;
+const [galaxy, kjv] = media.photography;
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Photography / The Observed World"
+  description="Selected original photography by Tyson Barnes: places, systems, objects and observations retained as a visual record."
+>
   <main class="photo-monograph">
     <header class="photo-monograph-head shell">
       <div>
-        <span class="eyebrow">PHOTOGRAPHY / FIELD RECORD</span>
+        <span class="eyebrow">PHOTOGRAPHY / SELECTED PLATES</span>
         <h1>THE<br />OBSERVED<br />WORLD.</h1>
       </div>
+
       <div class="photo-monograph-intro">
         <p>
-          A photographic record rather than a conventional portfolio. Images are retained because
-          they document a place, system, object, condition or observation worth keeping.
+          Photography as a record of attention. Places, systems, objects
+          and moments are retained when the image itself says something
+          worth preserving.
         </p>
-        <p class="meta">ORIGINAL PHOTOGRAPHY / CURATED DERIVATIVES / NO STOCK IMAGERY</p>
+
+        <p class="meta">
+          ORIGINAL PHOTOGRAPHY / CURATED DERIVATIVES / NO STOCK IMAGERY
+        </p>
       </div>
     </header>
 
     <section class="photo-spread photo-spread--landscape shell">
       <figure>
-        <img src={galaxy.src} alt={galaxy.alt} loading="eager" decoding="async" />
-        <figcaption><span>01 / FIELD</span><span>{galaxy.caption}</span></figcaption>
+        <img
+          src={galaxy.src}
+          alt={galaxy.alt}
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption>
+          <span>PLATE 01</span>
+          <span>{galaxy.caption}</span>
+        </figcaption>
       </figure>
     </section>
 
     <section class="photo-spread photo-spread--portrait shell">
       <div class="photo-note">
-        <span class="eyebrow">FIELD NOTE / 02</span>
+        <span class="eyebrow">PLATE / 02</span>
+
         <p>
-          Not every image needs the ceremony of an essay. Some deserve more than a log entry:
-          a visual record, enough context, and room to be looked at.
+          The photographic archive is intentionally selective here.
+          TB–000 presents photographs that contribute to the wider record;
+          the broader photographic archive remains on Flickr.
         </p>
       </div>
+
       <figure>
-        <img src={kjv.src} alt={kjv.alt} loading="lazy" decoding="async" />
-        <figcaption><span>02 / FIELD</span><span>{kjv.caption}</span></figcaption>
+        <img
+          src={kjv.src}
+          alt={kjv.alt}
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          <span>PLATE 02</span>
+          <span>{kjv.caption}</span>
+        </figcaption>
       </figure>
     </section>
 
-    <nav class="photo-monograph-exits shell" aria-label="Photography related sections">
-      <a href="/field/"><span>FIELD RECORDS</span><span>↗</span></a>
-      <a href="/work/"><span>ENGINEERED SYSTEMS</span><span>↗</span></a>
-      <a href="/about/"><span>ABOUT THE PRACTICE</span><span>↗</span></a>
+    <nav
+      class="photo-monograph-exits shell"
+      aria-label="Photography related sections"
+    >
+      <a
+        href="https://www.flickr.com/photos/tysonbarnes/"
+        rel="me"
+      >
+        <span>FULL PHOTO ARCHIVE / FLICKR</span>
+        <span>↗</span>
+      </a>
+
+      <a href="/notes/">
+        <span>FIELD RECORDS</span>
+        <span>↗</span>
+      </a>
+
+      <a href="/about/">
+        <span>ABOUT THE PRACTICE</span>
+        <span>↗</span>
+      </a>
     </nav>
   </main>
 </BaseLayout>

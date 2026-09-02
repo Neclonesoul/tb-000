@@ -1,14 +1,108 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '@/components/BaseLayout.astro';
+
 export async function getStaticPaths() {
-  return (await getCollection('notes')).filter((note) => !note.data.draft).map((note) => ({ params: { id: note.id }, props: { note } }));
+  return (await getCollection('notes'))
+    .filter((note) => !note.data.draft)
+    .map((note) => ({
+      params: { id: note.id },
+      props: { note }
+    }));
 }
+
 const { note } = Astro.props;
 const { Content, headings } = await render(note);
 ---
-<BaseLayout title={note.data.title} description={note.data.description} type="article">
-  <article class="dossier"><header class="dossier-hero"><div class="shell dossier-lead"><div><span class="record-number">NOTE / {note.data.topic}</span><h1>{note.data.title}</h1></div><p>{note.data.subtitle ?? note.data.description}<br /><span class="meta">{note.data.date.toLocaleDateString('en-GB', { dateStyle: 'long' })}</span></p></div></header>
-    <div class="dossier-body shell"><article class="note-body"><Content /></article><aside>{headings.length > 1 && <><span class="eyebrow">CONTENTS</span><ul class="related-list">{headings.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul></>}<a class="explore-link" href="/notes/"><span>NOTES INDEX</span><span>←</span></a></aside></div>
+
+<BaseLayout
+  title={note.data.title}
+  description={note.data.description}
+  type="article"
+>
+  <article class="dossier">
+    <header class="dossier-hero">
+      <div class="shell dossier-lead">
+        <div>
+          <span class="record-number">
+            NOTE / {note.data.topic}
+            {note.data.legacyId ? ` / ${note.data.legacyId}` : ''}
+          </span>
+
+          <h1>{note.data.title}</h1>
+        </div>
+
+        <p>
+          {note.data.subtitle ?? note.data.description}
+          <br />
+
+          <span class="meta">
+            {note.data.date.toLocaleDateString('en-GB', {
+              dateStyle: 'long'
+            })}
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <div class="dossier-body shell">
+      <article class="note-body">
+        <Content />
+      </article>
+
+      <aside>
+        {
+          note.data.location && (
+            <>
+              <span class="eyebrow">OBSERVATION</span>
+              <p class="meta">
+                LOCATION<br />
+                {note.data.location}
+              </p>
+            </>
+          )
+        }
+
+        {
+          note.data.category && (
+            <p class="meta">
+              CLASS<br />
+              {note.data.category}
+            </p>
+          )
+        }
+
+        {
+          (note.data.tags ?? []).length > 0 && (
+            <p class="meta">
+              TAGS<br />
+              {(note.data.tags ?? []).join(' · ')}
+            </p>
+          )
+        }
+
+        {
+          headings.length > 1 && (
+            <>
+              <span class="eyebrow">CONTENTS</span>
+              <ul class="related-list">
+                {headings.map((heading) => (
+                  <li>
+                    <a href={`#${heading.slug}`}>
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+        }
+
+        <a class="explore-link" href="/notes/">
+          <span>NOTES INDEX</span>
+          <span>←</span>
+        </a>
+      </aside>
+    </div>
   </article>
 </BaseLayout>

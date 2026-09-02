@@ -1,7 +1,7 @@
 export const SITE = {
   title: 'TB–000 / Tyson Barnes',
   name: 'Tyson Barnes',
-  description: 'Engineering the physical & digital world. Software, systems, web, photography and field technology.',
+  description: 'Engineering the physical & digital world. Systems, technical writing, photography and applied engineering.',
   url: 'https://tysonbarnes.co.uk',
   github: 'https://github.com/Neclonesoul',
   email: 'mailto:tyson@darktech.co.za',
@@ -16,9 +16,7 @@ export const SITE = {
 } as const;
 
 export const primaryNav = [
-  { label: 'WORK', href: '/work/' },
-  { label: 'FIELD', href: '/field/' },
-  { label: 'NOTES', href: '/notes/' },
+{ label: 'NOTES', href: '/notes/' },
   { label: 'SYSTEMS', href: '/systems/' },
   { label: 'PHOTOGRAPHY', href: '/photography/' },
   { label: 'ABOUT', href: '/about/' }

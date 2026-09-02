@@ -32,7 +32,7 @@ const projectMedia: Record<string, MediaRecord> = {
   }
 };
 
-const fieldMedia: readonly [MediaRecord, MediaRecord] = [
+const photographyMedia: readonly [MediaRecord, MediaRecord] = [
   {
     src: '/media/curated/field-galaxy.webp',
     alt: 'Field photographic record',
@@ -57,5 +57,5 @@ export const media = {
   } satisfies MediaRecord,
 
   projects: projectMedia,
-  field: fieldMedia
+  photography: photographyMedia
 } as const;

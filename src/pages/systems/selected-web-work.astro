@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/components/BaseLayout.astro';
+const systems = [
+  { name: 'RFS AFRICA', type: 'COMMERCIAL WEBSITE / LOGISTICS', url: 'https://rfsafrica.com', copy: 'From Pit to Port. One Integrated Logistics Solution. A Southern African rail and logistics website.' },
+  { name: 'TYSON BARNES — WEBSITES', type: 'COMMERCIAL WEB / UNITED KINGDOM', url: 'https://web.tysonbarnes.co.uk', copy: 'A private UK-oriented offering for bespoke, compact business websites.' }
+];
+const network: Array<[string, string, string]> = [
+  ['KJV', 'Bible Illuminated', 'https://kjv.tysonbarnes.co.uk'], ['INSTA', 'Photography', 'https://insta.tysonbarnes.co.uk'],
+  ['SHED', 'Internet Shed tools', 'https://shed.tysonbarnes.co.uk'], ['PROJECTS', 'Project portfolio', 'https://projects.tysonbarnes.co.uk'],
+  ['WEB', 'Commercial web', 'https://web.tysonbarnes.co.uk'], ['DEMO', 'Demonstration site', 'https://demo.tysonbarnes.co.uk']
+];
+---
+<BaseLayout title="Selected Web Systems" description="Selected commercial websites and the active Tyson Barnes web network.">
+  <header class="page-intro"><div class="shell page-intro-grid">
+    <div><span class="record-number">WEB / SECONDARY RECORD</span><h1>SELECTED<br />WEB SYSTEMS</h1></div>
+    <p>Selected commercial and publishing systems retained as part of the broader technical record.</p>
+  </div></header>
+  <div class="shell archive-grid">
+    {systems.map((system) => <a class="archive-record" href={system.url}><span class="eyebrow">{system.type}</span><div><h2>{system.name}</h2><p>{system.copy}</p><span class="meta">OPEN PRODUCTION ↗</span></div></a>)}
+  </div>
+  <section class="section section--paper"><div class="shell">
+    <header class="section-header"><div><span class="eyebrow">ACTIVE ROUTES</span><h2>PUBLIC<br />NETWORK</h2></div><p>Current subdomains within the Tyson Barnes publishing system.</p></header>
+    <div class="manifest">{network.map(([id, name, url]) => <section><span class="eyebrow">{id}</span><h2>{name}</h2><a href={url}>{url.replace('https://', '')} ↗</a></section>)}</div>
+  </div></section>
+</BaseLayout>

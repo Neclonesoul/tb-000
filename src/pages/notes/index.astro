@@ -1,11 +1,73 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/components/BaseLayout.astro';
-const notes = (await getCollection('notes')).filter((note) => !note.data.draft).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const notes = (await getCollection('notes'))
+  .filter((note) => !note.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
-<BaseLayout title="Notes" description="Technical notes on software, Linux, mobile computing, field engineering and publishing.">
-  <header class="page-intro"><div class="shell page-intro-grid"><div><span class="record-number">NOTES / WRITING</span><h1>TECHNICAL<br />NOTES</h1></div><p>Long-form records for decisions, methods and field-tested workflows.</p></div></header>
+
+<BaseLayout
+  title="Notes / Working Knowledge"
+  description="Notes by Tyson Barnes: field observations, engineering lessons, technical writing, experiments, business thinking and design reasoning."
+>
+  <header class="page-intro">
+    <div class="shell page-intro-grid">
+      <div>
+        <span class="record-number">NOTES / WORKING KNOWLEDGE</span>
+        <h1>THINK.<br />OBSERVE.<br />RECORD.</h1>
+      </div>
+
+      <p>
+        Field observations, engineering lessons, technical reasoning,
+        experiments and ideas retained when they remain useful beyond
+        the immediate moment.
+      </p>
+    </div>
+  </header>
+
   <div class="shell">
-    {notes.length ? <div class="archive-grid">{notes.map((note) => <a class="archive-record" href={`/notes/${note.id}/`}><span class="eyebrow">{note.data.topic}</span><div><h2>{note.data.title}</h2><p>{note.data.description}</p><span class="meta">{note.data.date.toLocaleDateString('en-GB')}</span></div></a>)}</div> : <div class="empty-state"><span class="eyebrow">ARCHIVE STATE / OPEN</span><h2>No notes have been promoted to the public archive.</h2><p>The publishing system is complete. New entries begin as plain Markdown and appear here, in RSS and in related-project navigation after passing the content schema.</p></div>}
+    {
+      notes.length ? (
+        <div class="archive-grid">
+          {notes.map((note) => (
+            <a class="archive-record" href={`/notes/${note.id}/`}>
+              <span class="eyebrow">
+                {note.data.topic}
+                {note.data.legacyId ? ` / ${note.data.legacyId}` : ''}
+              </span>
+
+              <div>
+                <h2>{note.data.title}</h2>
+                <p>{note.data.description}</p>
+
+                <span class="meta">
+                  {note.data.location
+                    ? `${note.data.location} / `
+                    : ''}
+                  {note.data.date.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
+                  })}
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <span class="eyebrow">ARCHIVE STATE / OPEN</span>
+
+          <h2>THE RECORD BEGINS WITH SOMETHING WORTH KEEPING.</h2>
+
+          <p>
+            Notes are published when a method, decision or observation
+            remains useful after the work that produced it. Nothing is
+            added simply to fill the archive.
+          </p>
+        </div>
+      )
+    }
   </div>
 </BaseLayout>

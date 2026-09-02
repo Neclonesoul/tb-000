@@ -11,7 +11,7 @@ export function toPublicProject(project: ProjectEntry) {
   const { relationships, ...data } = project.data;
   return {
     ...data,
-    href: `/work/${data.slug}/`,
+    href: `/systems/${data.slug}/`,
     relationships: relationships.map((item) => item.id)
   };
 }

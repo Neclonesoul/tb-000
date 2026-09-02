@@ -29,19 +29,6 @@ const projects = defineCollection({
   })
 });
 
-const field = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/field' }),
-  schema: z.object({
-    id: z.string().regex(/^FR–\d{3}$/),
-    title: z.string(),
-    date: z.coerce.date(),
-    location: z.string(),
-    category: z.string(),
-    scientificName: z.string().optional(),
-    relatedProject: reference('projects').optional()
-  })
-});
-
 const notes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/notes' }),
   schema: z.object({
@@ -50,9 +37,14 @@ const notes = defineCollection({
     date: z.coerce.date(),
     topic: z.string(),
     description: z.string(),
+    tags: z.array(z.string()).default([]),
+    location: z.string().optional(),
+    category: z.string().optional(),
+    scientificName: z.string().optional(),
+    legacyId: z.string().optional(),
     relatedProjects: z.array(reference('projects')).default([]),
     draft: z.boolean().default(false)
   })
 });
 
-export const collections = { projects, field, notes };
+export const collections = { projects, notes };

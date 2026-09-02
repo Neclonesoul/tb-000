@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/components/BaseLayout.astro';
 import SystemMap from '@/components/SystemMap.svelte';
+import ProjectExplorer from '@/components/ProjectExplorer.svelte';
 import { sortProjects, toPublicProject } from '@/lib/projects';
 
 const projects = sortProjects(await getCollection('projects')).map(toPublicProject);
@@ -21,7 +22,7 @@ const domains = [
     label: 'Software Engineering · Linux · Systems Administration · Networks',
     body:
       'Software, operating systems, networking, hosting, mobile systems and the technical infrastructure used to build, operate and publish independent systems.',
-    href: '/work/'
+    href: '/systems/'
   },
   {
     no: '03',
@@ -29,7 +30,7 @@ const domains = [
     label: 'AI Engineering · Agentic Systems · Data Systems · Applied Automation',
     body:
       'Applied AI, agentic engineering, data pipelines, verification workflows and automation used as controlled extensions of technical practice.',
-    href: '/work/'
+    href: '/systems/'
   },
   {
     no: '04',
@@ -44,15 +45,15 @@ const domains = [
     title: 'OBSERVATIONAL',
     label: 'Microscopy · Live Blood Analysis · Photography · Field Observation',
     body:
-      'Observation, microscopy, photography and field records used to document physical reality, practical work and systems in context.',
-    href: '/field/'
+      'Observation, microscopy, photography and observational notes used to document physical reality, practical work and systems in context.',
+    href: '/notes/'
   }
 ] as const;
 ---
 
 <BaseLayout
   title="Systems"
-  description="The operating domains, relationships and development systems behind the work of Tyson Barnes."
+  description="Systems built by Tyson Barnes across software, automation, infrastructure, Linux, data and applied engineering."
 >
   <header class="page-intro systems-intro">
     <div class="shell">
@@ -63,8 +64,9 @@ const domains = [
 
         <div class="systems-intro-copy">
           <p>
-            The medium changes. The method does not: understand the system, expose its state,
-            reduce unnecessary complexity, and build something that can be operated.
+            Built systems across software, automation, infrastructure, Linux,
+            data and applied engineering. The medium changes; the method remains:
+            understand the system, expose its state and build something operable.
           </p>
           <span class="meta">PHYSICAL → COMPUTATIONAL → OPERATIONAL → OBSERVATIONAL</span>
         </div>
@@ -72,11 +74,33 @@ const domains = [
     </div>
   </header>
 
+  <section
+    class="work-register section--paper"
+    aria-labelledby="systems-register-title"
+  >
+    <div class="shell">
+      <header class="work-register-head">
+        <div>
+          <span class="eyebrow">BUILT SYSTEMS / 01</span>
+          <h2 id="systems-register-title">SYSTEM<br />REGISTER</h2>
+        </div>
+
+        <p>
+          The canonical record of systems built, released, operated or under
+          active development. Stable TB identifiers preserve continuity as
+          implementations evolve.
+        </p>
+      </header>
+
+      <ProjectExplorer client:load projects={projects} />
+    </div>
+  </section>
+
   <section class="section section--paper systems-domains">
     <div class="shell">
       <header class="section-header systems-domain-head">
         <div>
-          <span class="eyebrow">OPERATING ARCHITECTURE / 01</span>
+          <span class="eyebrow">OPERATING ARCHITECTURE / 02</span>
           <h2>FIVE<br />DOMAINS</h2>
         </div>
         <p>
@@ -105,7 +129,7 @@ const domains = [
 
   <section class="section systems-flow">
     <div class="shell systems-flow-intro">
-      <span class="eyebrow">IMPLEMENTATION SYSTEM / 02</span>
+      <span class="eyebrow">IMPLEMENTATION SYSTEM / 03</span>
       <div>
         <h2>FROM FIELD DEVICE<br />TO PRODUCTION.</h2>
         <p>

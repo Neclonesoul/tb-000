@@ -28,20 +28,20 @@ const selectedProjects = homeProjectSlugs.flatMap((slug) => {
       </h1>
       <div class="hero-bottom">
         <div>
-          <p class="hero-descriptor">Engineering · Software · Systems · AI · Field Technology</p>
+          <p class="hero-descriptor">Engineering · Software · Systems · AI · Observation</p>
           <a class="explore-link" href="#selected-work">
-            <span>EXPLORE THE WORK</span><span>↓</span>
+            <span>EXPLORE SYSTEMS</span><span>↓</span>
           </a>
         </div>
         <p class="hero-intro">
           A permanent index of systems built, observed, documented and published—across
-          industrial practice, software engineering, infrastructure, applied AI and the field.
+          industrial practice, software engineering, infrastructure, applied AI and direct observation.
         </p>
       </div>
     </div>
     <figure class="hero-image">
       <img src={media.hero.src} alt={media.hero.alt} fetchpriority="high" decoding="async" />
-      <figcaption>PHYSICAL SYSTEMS / DIGITAL SYSTEMS / FIELD PRACTICE</figcaption>
+      <figcaption>PHYSICAL SYSTEMS / DIGITAL SYSTEMS / OBSERVATION</figcaption>
     </figure>
   </section>
 
@@ -49,7 +49,7 @@ const selectedProjects = homeProjectSlugs.flatMap((slug) => {
     <div class="shell">
       <header class="section-header">
         <div>
-          <span class="eyebrow">WORK / SELECTED SYSTEMS</span>
+          <span class="eyebrow">SYSTEMS / SELECTED</span>
           <h2>BUILT<br />RECORDS</h2>
         </div>
         <p>
@@ -65,7 +65,7 @@ const selectedProjects = homeProjectSlugs.flatMap((slug) => {
          if (!image) return null;
           return (
             <article class="featured-work">
-              <a class="featured-work-image" href={`/work/${project.slug}/`}>
+              <a class="featured-work-image" href={`/systems/${project.slug}/`}>
                 <img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
               </a>
               <div class="featured-work-copy">
@@ -73,10 +73,10 @@ const selectedProjects = homeProjectSlugs.flatMap((slug) => {
                   <span>{String(index + 1).padStart(2, '0')}</span>
                   <span>{project.status}</span>
                 </div>
-                <h3><a href={`/work/${project.slug}/`}>{project.title}</a></h3>
+                <h3><a href={`/systems/${project.slug}/`}>{project.title}</a></h3>
                 <p>{project.summary}</p>
                 <div class="featured-work-links">
-                  <a href={`/work/${project.slug}/`}>PROJECT RECORD ↗</a>
+                  <a href={`/systems/${project.slug}/`}>PROJECT RECORD ↗</a>
                   {image.href && <a href={image.href}>LIVE ↗</a>}
                   {image.demoHref && <a href={image.demoHref}>DEMO ↗</a>}
                 </div>
@@ -86,7 +86,7 @@ const selectedProjects = homeProjectSlugs.flatMap((slug) => {
         })}
       </div>
 
-      <a class="explore-link" href="/work/">
+      <a class="explore-link" href="/systems/">
         <span>OPEN THE FULL INDEX</span><span>↗</span>
       </a>
     </div>
@@ -148,7 +148,7 @@ const selectedProjects = homeProjectSlugs.flatMap((slug) => {
     <div class="shell">
       <header class="section-header">
         <div>
-          <span class="eyebrow">FIELD / PHOTOGRAPHIC RECORD</span>
+          <span class="eyebrow">PHOTOGRAPHY / OBSERVED WORLD</span>
           <h2>OBSERVE<br />FIRST</h2>
         </div>
         <p>
@@ -156,14 +156,14 @@ const selectedProjects = homeProjectSlugs.flatMap((slug) => {
           engineering record. Original photography is treated as evidence, not decoration.
         </p>
       </header>
-      <div class="home-field-plates">
-        <figure class="home-field-plate home-field-plate--wide">
-          <img src={media.field[0].src} alt={media.field[0].alt} loading="lazy" decoding="async" />
-          <figcaption>{media.field[0].caption}</figcaption>
+      <div class="home-photography-plates">
+        <figure class="home-photography-plate home-photography-plate--wide">
+          <img src={media.photography[0].src} alt={media.photography[0].alt} loading="lazy" decoding="async" />
+          <figcaption>{media.photography[0].caption}</figcaption>
         </figure>
-        <figure class="home-field-plate home-field-plate--portrait">
-          <img src={media.field[1].src} alt={media.field[1].alt} loading="lazy" decoding="async" />
-          <figcaption>{media.field[1].caption}</figcaption>
+        <figure class="home-photography-plate home-photography-plate--portrait">
+          <img src={media.photography[1].src} alt={media.photography[1].alt} loading="lazy" decoding="async" />
+          <figcaption>{media.photography[1].caption}</figcaption>
         </figure>
       </div>
       <a class="explore-link" href="/photography/">
