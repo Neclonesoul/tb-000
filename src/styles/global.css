@@ -2975,3 +2975,115 @@ body::before {
     max-height: 19rem;
   }
 }
+
+
+/* ================================================================
+   ABOUT — FINAL PUBLICATION PASS
+   ================================================================ */
+
+.about-intro-profile {
+  min-width: 0;
+}
+
+.about-intro-profile img {
+  display: block;
+  width: 100%;
+  max-width: 28rem;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-identity {
+  display: grid;
+  gap: .75rem;
+}
+
+.about-identity p {
+  margin: 0;
+}
+
+.about-identity .meta {
+  opacity: .62;
+}
+
+/* Final route through the published body of work. */
+
+.about-closing-grid {
+  display: grid;
+  grid-template-columns: minmax(15rem, .62fr) minmax(0, 1.38fr);
+  gap: clamp(3rem, 8vw, 8rem);
+}
+
+.about-closing-grid header h2 {
+  margin-block-start: .75rem;
+  font-size: var(--step-3);
+  line-height: .98;
+}
+
+.about-closing-copy {
+  min-width: 0;
+}
+
+.about-closing-copy > p {
+  max-width: 60ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.about-routes {
+  margin-block-start: clamp(2rem, 5vw, 4rem);
+  border-block-start: 1px solid
+    color-mix(in srgb, var(--color-paper) 18%, transparent);
+}
+
+.about-routes a {
+  display: grid;
+  grid-template-columns: 7rem minmax(9rem, .65fr) minmax(0, 1fr);
+  gap: 1rem 2rem;
+  align-items: baseline;
+  padding-block: 1.35rem;
+  border-block-end: 1px solid
+    color-mix(in srgb, var(--color-paper) 18%, transparent);
+  text-decoration: none;
+}
+
+.about-routes strong {
+  font-size: var(--step-1);
+  letter-spacing: -.015em;
+}
+
+.about-routes a > span:last-child {
+  opacity: .68;
+}
+
+@media (max-width: 800px) {
+  .about-closing-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+
+  .about-routes a {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+  }
+
+  .about-routes a > span:last-child {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-intro-profile img {
+    max-width: 100%;
+  }
+
+  .about-routes a {
+    grid-template-columns: 1fr;
+    gap: .35rem;
+  }
+
+  .about-routes a > span:last-child {
+    grid-column: 1;
+  }
+}
