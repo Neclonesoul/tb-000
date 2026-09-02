@@ -1,8 +1,5 @@
 ---
 import BaseLayout from '@/components/BaseLayout.astro';
-import { media } from '@/data/media';
-
-const [galaxy, kjv] = media.photography;
 ---
 
 <BaseLayout
@@ -24,49 +21,18 @@ const [galaxy, kjv] = media.photography;
         </p>
 
         <p class="meta">
-          ORIGINAL PHOTOGRAPHY / CURATED DERIVATIVES / NO STOCK IMAGERY
+          ORIGINAL PHOTOGRAPHY / CURATED COLLECTION / NO STOCK IMAGERY
         </p>
       </div>
     </header>
 
-    <section class="photo-spread photo-spread--landscape shell">
-      <figure>
-        <img
-          src={galaxy.src}
-          alt={galaxy.alt}
-          loading="eager"
-          decoding="async"
-        />
-        <figcaption>
-          <span>PLATE 01</span>
-          <span>{galaxy.caption}</span>
-        </figcaption>
-      </figure>
-    </section>
+    <section class="photo-collection-pending shell">
+      <span class="eyebrow">COLLECTION / 2026</span>
 
-    <section class="photo-spread photo-spread--portrait shell">
-      <div class="photo-note">
-        <span class="eyebrow">PLATE / 02</span>
-
-        <p>
-          The photographic archive is intentionally selective here.
-          TB–000 presents photographs that contribute to the wider record;
-          the broader photographic archive remains on Flickr.
-        </p>
-      </div>
-
-      <figure>
-        <img
-          src={kjv.src}
-          alt={kjv.alt}
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>
-          <span>PLATE 02</span>
-          <span>{kjv.caption}</span>
-        </figcaption>
-      </figure>
+      <p>
+        A new selected photographic collection is being prepared for
+        publication.
+      </p>
     </section>
 
     <nav
@@ -82,7 +48,7 @@ const [galaxy, kjv] = media.photography;
       </a>
 
       <a href="/notes/">
-        <span>FIELD RECORDS</span>
+        <span>NOTES</span>
         <span>↗</span>
       </a>
 
