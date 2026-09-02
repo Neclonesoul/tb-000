@@ -1,44 +1,80 @@
 <script lang="ts">
-  type Project = { id: string; title: string; href: string; status: string; summary: string; disciplines: string[]; technologies: string[]; type: string };
+  type Project = {
+    id: string;
+    title: string;
+    href: string;
+    year: number;
+    status: string;
+    summary: string;
+    disciplines: string[];
+    technologies: string[];
+    type: string;
+    sourceUrl?: string | undefined;
+    liveUrl?: string | undefined;
+    demoUrl?: string | undefined;
+    releaseUrl?: string | undefined;
+  };
+
   export let projects: Project[] = [];
-  const filters = ['ALL', 'SOFTWARE', 'SYSTEMS', 'WEB', 'FIELD'];
+  const filters = ['ALL', 'LIVE', 'RELEASED', 'IN DEVELOPMENT', 'PUBLIC'];
   let active = 'ALL';
-  let selected = 0;
-  $: visible = active === 'ALL' ? projects : projects.filter((project) => project.disciplines.includes(active));
-  $: if (selected >= visible.length) selected = 0;
-  function keydown(event: KeyboardEvent) {
-    if (event.key === 'ArrowDown') { event.preventDefault(); selected = Math.min(selected + 1, visible.length - 1); }
-    if (event.key === 'ArrowUp') { event.preventDefault(); selected = Math.max(selected - 1, 0); }
-    if (event.key === 'Enter' && visible[selected]) window.location.href = visible[selected].href;
-  }
+
+  $: visible =
+    active === 'ALL'
+      ? projects
+      : projects.filter((project) => project.status === active);
 </script>
 
-<section class="explorer" aria-label="Project explorer" on:keydown={keydown}>
-  <div class="explorer-filters" aria-label="Filter projects">
+<div class="project-register">
+  <div class="explorer-filters" aria-label="Filter project registry">
     {#each filters as filter}
-      <button type="button" class:active={active === filter} aria-pressed={active === filter} on:click={() => { active = filter; selected = 0; }}>{filter}</button>
+      <button
+        type="button"
+        class:active={active === filter}
+        aria-pressed={active === filter}
+        on:click={() => (active = filter)}
+      >
+        {filter}
+      </button>
     {/each}
   </div>
-  <div class="explorer-grid">
-    <div class="explorer-list" role="list">
-      {#each visible as project, index}
-        <a href={project.href} role="listitem" class:selected={index === selected} on:mouseenter={() => selected = index} on:focus={() => selected = index}>
-          <span>{project.id}</span>
-          <strong>{project.title}</strong>
-          <small>{project.status}</small>
-        </a>
-      {/each}
-    </div>
-    {#if visible[selected]}
-      <aside class="explorer-preview" aria-live="polite">
-        <span class="eyebrow">SELECTED RECORD / {visible[selected].id}</span>
-        <h2>{visible[selected].title}</h2>
-        <p>{visible[selected].summary}</p>
-        <dl>
-          <div><dt>DISCIPLINE</dt><dd>{visible[selected].disciplines.join(' / ')}</dd></div>
-          <div><dt>SYSTEM</dt><dd>{visible[selected].technologies.slice(0, 4).join(' · ')}</dd></div>
-        </dl>
-      </aside>
-    {/if}
-  </div>
-</section>
+
+  <ol class="project-register-list">
+    {#each visible as project}
+      <li class="project-register-record">
+        <div class="project-register-primary">
+          <span class="project-register-id">{project.id}</span>
+          <div>
+            <a class="project-register-title" href={project.href}>
+              {project.title}
+            </a>
+            <p>{project.summary}</p>
+          </div>
+        </div>
+
+        <div class="project-register-classification">
+          <span>{project.type}</span>
+          {#if project.disciplines.length}
+            <small>{project.disciplines.join(' / ')}</small>
+          {/if}
+          {#if project.technologies.length}
+            <small>{project.technologies.slice(0, 5).join(' · ')}</small>
+          {/if}
+        </div>
+
+        <div class="project-register-state">
+          <span class="status">{project.status}</span>
+          <small>{project.year}</small>
+        </div>
+
+        <div class="project-register-evidence">
+          <a href={project.href}>RECORD →</a>
+          {#if project.sourceUrl}<a href={project.sourceUrl}>SOURCE ↗</a>{/if}
+          {#if project.liveUrl}<a href={project.liveUrl}>LIVE ↗</a>{/if}
+          {#if project.demoUrl}<a href={project.demoUrl}>DEMO ↗</a>{/if}
+          {#if project.releaseUrl}<a href={project.releaseUrl}>RELEASE ↗</a>{/if}
+        </div>
+      </li>
+    {/each}
+  </ol>
+</div>
