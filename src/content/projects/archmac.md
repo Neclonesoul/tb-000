@@ -775,3 +775,82 @@ main pre {
   }
 }
 </style>
+
+<style>
+/* ARCHMAC-MOBILE-BOUNDS-V1 */
+
+/* Never allow dossier content to widen the page */
+main,
+main * {
+  box-sizing: border-box;
+}
+
+main {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+main p,
+main h1,
+main h2,
+main h3,
+main ul,
+main ol,
+main blockquote,
+main pre,
+main table {
+  max-width: 100%;
+}
+
+/* Long technical strings must wrap rather than expand the viewport */
+main p,
+main li,
+main td,
+main th {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Tables scroll internally rather than widening the page */
+main table {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  /*
+   * Preserve a real mobile gutter.
+   * Use padding rather than width calculations so nothing can clip.
+   */
+  main {
+    width: 100%;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+
+  main > *,
+  main article,
+  main section,
+  main div {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  main p {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  main table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  main pre {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+</style>
