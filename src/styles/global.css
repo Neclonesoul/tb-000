@@ -2896,61 +2896,13 @@ body::before {
 
 /* Give the transparent machine a subtle technical field,
    not a card or artificial image background. */
-.archmac-machine-hero::before {
-  content: "";
-  position: absolute;
-  inset: 10% 4%;
-  z-index: -1;
-  background:
-    linear-gradient(var(--color-rule) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-rule) 1px, transparent 1px);
-  background-size: 4rem 4rem;
-  opacity: .16;
-  mask-image:
-    radial-gradient(
-      ellipse at center,
-      black 0%,
-      rgb(0 0 0 / .7) 45%,
-      transparent 78%
-    );
-}
 
-@media (min-width: 1200px) {
-  .archmac-machine-hero {
-    min-height: 30rem;
-  }
 
-  .archmac-machine-hero img {
-    width: min(82%, 78rem);
-  }
-}
 
-@media (max-width: 800px) {
-  .archmac-machine-hero {
-    margin: 1rem 0 2.5rem;
-  }
 
-  .archmac-machine-hero img {
-    width: 100%;
-    max-height: 25rem;
-  }
 
-  .archmac-machine-hero::before {
-    inset: 5% 0;
-    background-size: 2.5rem 2.5rem;
-  }
-}
 
-@media (max-width: 560px) {
-  .archmac-machine-hero {
-    margin-block: .75rem 2rem;
-  }
 
-  .archmac-machine-hero img {
-    width: 100%;
-    max-height: 19rem;
-  }
-}
 
 
 /* ================================================================
