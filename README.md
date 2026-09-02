@@ -132,3 +132,19 @@ The public project registry contains shipped or public work only. Unknown metric
 ## Licence
 
 Source code is available under the MIT terms in `LICENSE`. Written content, project descriptions and photography remain copyright Tyson Barnes unless separately licensed.
+
+## Information architecture
+
+TB–000 uses four primary sections:
+
+- **Notes** — field observations, engineering lessons, technical reasoning, essays, experiments and working knowledge.
+- **Systems** — software, automation, infrastructure, architectures, prototypes and engineering projects.
+- **Photography** — visual records and photographic work.
+- **About** — Tyson Barnes, professional practice and background.
+
+Field observations are published as Notes and may retain `FIELD` as metadata. Systems are the canonical home for build and project records.
+
+Legacy public URLs are preserved at the Cloudflare Worker layer:
+
+- `/field/*` → `/notes/*`
+- `/work/*` → `/systems/*`
