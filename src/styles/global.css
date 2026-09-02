@@ -2720,3 +2720,103 @@ body::before {
   .project-register-classification,.project-register-state,.project-register-evidence{grid-column:1;grid-row:auto;padding-inline-start:4.5rem;text-align:left}
   .project-register-state{display:flex;gap:1rem;align-items:baseline}
 }
+
+
+/* ================================================================
+   SYSTEM DOSSIER — RESPONSIVE READING BOUNDS
+   ================================================================ */
+
+.dossier-lead,
+.dossier-meta,
+.dossier-body {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dossier-body > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dossier-body article,
+.dossier-body .prose {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dossier-body p,
+.dossier-body li {
+  overflow-wrap: break-word;
+}
+
+.dossier-body img,
+.dossier-body video,
+.dossier-body svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.dossier-body pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.dossier-body table {
+  max-width: 100%;
+}
+
+/* Phone dossier */
+@media (max-width: 800px) {
+  .dossier-lead,
+  .dossier-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dossier-body {
+    width: 100%;
+    gap: var(--space-3);
+  }
+
+  .dossier-body > * {
+    grid-column: 1 !important;
+    width: 100%;
+    min-width: 0;
+    margin-inline: 0;
+  }
+
+  .dossier-body article,
+  .dossier-body .prose {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .dossier-body p,
+  .dossier-body ul,
+  .dossier-body ol,
+  .dossier-body blockquote,
+  .dossier-body h2,
+  .dossier-body h3 {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .dossier-body table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Narrow phone: retain the site's shell gutter; never bleed dossier copy */
+@media (max-width: 560px) {
+  .dossier-body {
+    overflow: hidden;
+  }
+
+  .dossier-body p,
+  .dossier-body li {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+}
