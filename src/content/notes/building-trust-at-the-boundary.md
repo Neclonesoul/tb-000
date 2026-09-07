@@ -3,7 +3,7 @@ title: "Building Trust at the Boundary: Device Authority, Signed Sessions and Au
 description: "Engineering notes on device authority, asymmetric signing, authenticated API boundaries, authoritative records and moving the verification frontier."
 date: 2026-09-07
 draft: false
-topic: "Medicine / Blood / Evidence"
+topic: "Engineering / Security / Systems"
 ---
 
 There comes a point in building a serious field system when the interesting question is no longer whether the interface works.
