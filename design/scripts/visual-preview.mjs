@@ -7,7 +7,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 
 const rootUrl = 'http://127.0.0.1:4327';
 const outputDir = new URL('../preview-artifacts/', import.meta.url);
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4327'], { stdio: 'pipe', shell: false });
+const server = spawn('./node_modules/.bin/astro', ['preview', '--host', '127.0.0.1', '--port', '4327'], { stdio: 'pipe', shell: false });
 let serverOutput = '';
 server.stdout.on('data', chunk => { serverOutput += chunk.toString(); });
 server.stderr.on('data', chunk => { serverOutput += chunk.toString(); });
