@@ -1,0 +1,55 @@
+---
+import '../../styles/global.css';
+import { projects } from '../../data/projects';
+import WorkArt from '../../components/WorkArt.astro';
+import type { Project } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+const { project } = Astro.props as { project: Project };
+const title = `${project.title} — Tyson Barnes / Design`;
+const description = project.description;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f5f3ee" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={`https://design.tysonbarnes.co.uk/work/${project.slug}/`} />
+    <link rel="canonical" href={`https://design.tysonbarnes.co.uk/work/${project.slug}/`} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Tyson Barnes Design — home"><span class="brand-mark">TB<span class="brand-dot">.</span></span><span class="brand-label">DESIGN<br /><small>INDEPENDENT PRACTICE</small></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="/#work">Work</a><a href="/#disciplines">Disciplines</a><a href="/#process">Process</a><a href="/#about">About</a></nav>
+      <a class="nav-contact" href="/#contact">LET'S TALK <span>↗</span></a>
+      <a class="mobile-menu-button" href="/#work" style="display:flex;margin-left:auto">ALL WORK ↗</a>
+    </header>
+    <main class="case-page" id="content">
+      <a href="/#work" class="case-back">← BACK TO SELECTED WORK</a>
+      <p class="case-eyebrow">{project.no} / {project.discipline} / {project.year}</p>
+      <h1>{project.title}<span class="accent-dot">.</span></h1>
+      <p class="case-subtitle">{project.description}</p>
+      <div class="case-metadata"><span>{project.kicker}</span><span>{project.status}</span></div>
+      <div class="case-art"><WorkArt art={project.art}/></div>
+      <div class="case-columns"><h2>01 / The brief</h2><p>{project.scope}</p></div>
+      <div class="case-columns"><h2>02 / The question</h2><p>{project.challenge}</p></div>
+      <div class="case-columns"><h2>03 / The direction</h2><p>{project.response}</p></div>
+      <div class="case-columns"><h2>04 / Evidence to add</h2><p>{project.evidence}</p></div>
+      <p class="case-note"><strong>Portfolio documentation note.</strong> The visual above is an original illustrative composition created for this prototype, not authenticated project photography or a claim about the shipped interface. This case study is a working editorial outline awaiting project-specific evidence and review.</p>
+      <div class="case-tags">{project.tags.map(tag => <span>{tag}</span>)}</div>
+      <div class="case-end"><a href="/#work" class="solid-button">BACK TO SELECTED WORK <span>↗</span></a></div>
+    </main>
+    <footer class="site-footer"><a class="footer-brand" href="/">TB<span>.</span> / DESIGN</a><span>INDEPENDENT THINKING. TANGIBLE RESULTS.</span><span>© 2026 TYSON BARNES</span></footer>
+  </body>
+</html>

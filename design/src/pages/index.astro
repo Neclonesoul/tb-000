@@ -1,0 +1,155 @@
+---
+import '../styles/global.css';
+import { projects } from '../data/projects';
+import WorkArt from '../components/WorkArt.astro';
+const featured = projects.slice(0,4);
+const title = 'Tyson Barnes — Design, engineering & creative technology';
+const description = 'Independent multidisciplinary design practice. Objects, interfaces, experiences and engineered systems. From first principles to final form.';
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f5f3ee" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://design.tysonbarnes.co.uk/" />
+    <link rel="canonical" href="https://design.tysonbarnes.co.uk/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site-wrap">
+      <header class="site-header" id="top">
+        <a class="brand" href="/" aria-label="Tyson Barnes Design — home"><span class="brand-mark">TB<span class="brand-dot">.</span></span><span class="brand-label">DESIGN<br /><small>INDEPENDENT PRACTICE</small></span></a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#work">Work</a><a href="#disciplines">Disciplines</a><a href="#process">Process</a><a href="#about">About</a>
+        </nav>
+        <a class="nav-contact" href="#contact">LET'S TALK <span>↗</span></a>
+        <button type="button" class="mobile-menu-button" aria-label="Toggle menu" aria-controls="mobile-nav" aria-expanded="false">MENU <span>+</span></button>
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+          <a href="#work">Work</a><a href="#disciplines">Disciplines</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a>
+        </nav>
+      </header>
+      <main id="main">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-brow eyebrow"><span class="live-square"></span> DESIGNER / ENGINEER <span class="hero-location">KZN, SOUTH AFRICA ↔ EVERYWHERE</span></div>
+          <div class="hero-layout">
+            <div class="hero-copy">
+              <p class="section-index">INDEPENDENT BY DESIGN. <span>001 / INTRODUCTION</span></p>
+              <h1 id="hero-title">From first<br />principles to<br /><em>final form<span class="accent-dot">.</span></em></h1>
+              <p class="hero-description">I work where design meets engineering — creating useful objects, considered interfaces and ideas made tangible.</p>
+              <div class="hero-actions"><a class="solid-button" href="#work">EXPLORE THE WORK <span>↗</span></a><a class="text-button" href="#about">MEET THE DESIGNER <span>↗</span></a></div>
+            </div>
+            <div class="hero-visual" aria-label="Abstract technical illustration: a geometric engineered form study">
+              <div class="visual-topline"><span>FORM / STUDY 001</span><span>DESIGN AS A PROCESS ↗</span></div>
+              <svg class="hero-drawing" viewBox="0 0 540 570" role="img" aria-label="Illustrative isometric object and technical construction lines">
+                <defs>
+                  <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#7b7d70" opacity=".28"/></pattern>
+                  <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4e2d8"/><stop offset=".52" stop-color="#b0b2a8"/><stop offset="1" stop-color="#74776f"/></linearGradient>
+                  <linearGradient id="lid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffef5"/><stop offset="1" stop-color="#afb0a5"/></linearGradient>
+                  <filter id="objectShadow"><feDropShadow dx="7" dy="19" stdDeviation="16" flood-color="#151d18" flood-opacity=".17"/></filter>
+                </defs>
+                <rect width="540" height="570" fill="url(#dots)"/>
+                <g stroke="#777d70" stroke-width=".7" fill="none" opacity=".38"><path d="M12 284h516M270 0v570"/><circle cx="270" cy="284" r="208" stroke-dasharray="4 7"/><circle cx="270" cy="284" r="160"/><path d="M78 78l384 412M462 78L78 490"/></g>
+                <g filter="url(#objectShadow)" transform="translate(0,-12)">
+                  <path d="M150 210L324 122L435 189L264 281Z" fill="url(#lid)" stroke="#575b55" stroke-width="1.5"/>
+                  <path d="M150 210L264 281L264 422L150 348Z" fill="#797d76" stroke="#535852" stroke-width="1.5"/>
+                  <path d="M264 281L435 189L435 336L264 422Z" fill="url(#shell)" stroke="#535852" stroke-width="1.5"/>
+                  <path d="M182 218L319 150L398 197L263 267Z" fill="none" stroke="#7f837e" stroke-width="1.5"/>
+                  <circle cx="290" cy="204" r="40" fill="#515b54" stroke="#262d29" stroke-width="2"/>
+                  <circle cx="290" cy="204" r="29" fill="#202c29" stroke="#a0a89d" stroke-width="2"/>
+                  <circle cx="290" cy="204" r="14" fill="#d9583c"/>
+                  <path d="M177 240v81M199 253v81M220 268v81" stroke="#cfd2c9" stroke-width="1.7" opacity=".8"/>
+                  <path d="M307 306l88-49M307 327l88-49M307 348l88-49" stroke="#626d63" stroke-width="1.3" opacity=".7"/>
+                </g>
+                <g stroke="#da593d" stroke-width="1.4" fill="none"><path d="M286 188L403 98h81"/><circle cx="286" cy="188" r="4" fill="#da593d"/><path d="M340 371l89 73h56"/><circle cx="340" cy="371" r="4" fill="#da593d"/></g>
+                <g fill="#485047" font-family="monospace" font-size="10" letter-spacing="1"><text x="405" y="90">01 / CORE</text><text x="425" y="438">02 / SHELL</text><text x="23" y="548">CONCEPTUAL CONSTRUCTION DIAGRAM</text></g>
+              </svg>
+              <div class="visual-bottomline"><span>OBJECT / INTERFACE / SYSTEM</span><span>ILLUSTRATIVE FORM STUDY</span></div>
+            </div>
+          </div>
+          <div class="hero-footnote"><span>SCROLL TO EXPLORE <span class="down-arrow">↓</span></span><span>DESIGN IS NOT THE FINISHING TOUCH. IT IS THE THINKING.</span><span>© 2026 TYSON BARNES</span></div>
+        </section>
+        <section id="work" class="work-section section-pad">
+          <div class="section-heading"><div><p class="eyebrow"><span class="section-number">01 /</span> SELECTED WORK</p><h2>Things made<br /><em>to matter.</em></h2></div><p class="section-aside">A selection of products, interfaces and experiments — each shaped by a particular problem, purpose or curiosity.</p></div>
+          <div class="project-grid">
+          {featured.map((project) => (
+            <a class="project-card" href={`/work/${project.slug}/`} aria-label={`Explore ${project.title} case study`}>
+              <div class="project-image"><WorkArt art={project.art}/><span class="project-open" aria-hidden="true">↗</span></div>
+              <div class="project-meta"><span>{project.no} / {project.discipline}</span><span>{project.year}</span></div>
+              <div class="project-title-line"><h3>{project.title}</h3><span class="project-arrow" aria-hidden="true">↗</span></div>
+              <p>{project.description}</p>
+            </a>
+          ))}
+          </div>
+          <div class="work-bottom"><span>MORE WORK, STUDIES AND EXPERIMENTS TO COME.</span><a href="/work/alder-and-vale/">VIEW A CONCEPT STUDY ↗</a></div>
+        </section>
+        <section id="disciplines" class="disciplines-section section-pad">
+          <div class="section-heading dark-heading"><div><p class="eyebrow"><span class="section-number">02 /</span> CAPABILITIES</p><h2>Different disciplines.<br /><em>One way of thinking.</em></h2></div><p class="section-aside">Not a menu of services so much as a set of tools for making things better.</p></div>
+          <div class="discipline-list">
+            {[
+              ['01','Industrial & product design','Objects, prototypes, assemblies and practical design decisions.'],
+              ['02','Digital products & UX','Interfaces that respect the person using them.'],
+              ['03','Visual communication','Identity, typography, hierarchy and graphic systems.'],
+              ['04','Creative technology','Code, games, interaction and the unexpected.'],
+              ['05','Systems & experience design','People, information and complex operations brought into focus.']
+            ].map(([n,name,description]) => (
+              <div class="discipline-row"><span>{n}</span><h3>{name}</h3><p>{description}</p><span aria-hidden="true">↗</span></div>
+            ))}
+          </div>
+          <div class="discipline-footer"><span>SKETCH → DESIGN → PROTOTYPE → BUILD → LEARN</span><span>FORM FOLLOWS INTENT.</span></div>
+        </section>
+        <section id="process" class="process-section section-pad">
+          <div class="section-heading"><div><p class="eyebrow"><span class="section-number">03 /</span> THE APPROACH</p><h2>Curiosity,<br /><em>with rigour.</em></h2></div><p class="section-aside">Beauty is welcome. Function is non-negotiable. Good design comes from paying attention to both.</p></div>
+          <div class="process-grid">
+            {[
+              ['01','Understand','Get underneath the brief. Ask what actually needs to change.'],
+              ['02','Explore','Sketch widely. Compare directions. Follow promising questions.'],
+              ['03','Prototype','Give the idea something tangible that can be challenged.'],
+              ['04','Engineer','Make the chosen direction function in the real world.'],
+              ['05','Refine','Remove friction. Revisit assumptions. Keep what earns its place.']
+            ].map(([n,name,description]) => <div class="process-step"><span>{n} / 05</span><div class="step-line"></div><h3>{name}</h3><p>{description}</p></div>)}
+          </div>
+        </section>
+        <section class="manifesto-section">
+          <div class="manifesto-graphic" aria-hidden="true"><span class="manifesto-circle c-one"></span><span class="manifesto-circle c-two"></span><span class="manifesto-circle c-three"></span><span class="manifesto-spark">+</span></div>
+          <div class="manifesto-copy"><p class="eyebrow">A WORKING PHILOSOPHY</p><blockquote>“The most interesting ideas are the ones you can actually <em>bring into existence.</em>”</blockquote><span>TYSON BARNES / DESIGN & ENGINEERING</span></div>
+        </section>
+        <section id="about" class="about-section section-pad">
+          <div class="about-intro"><p class="eyebrow"><span class="section-number">04 /</span> ABOUT THE DESIGNER</p><h2>Designer by instinct.<br /><em>Engineer by discipline.</em></h2></div>
+          <div class="about-layout"><figure class="about-portrait"><img src="/tyson-barnes.webp" alt="Black-and-white portrait of Tyson Barnes" loading="lazy" decoding="async" /><figcaption><span>TYSON BARNES</span><span>DESIGN / ENGINEERING<br />FORM / FUNCTION</span></figcaption></figure><div class="about-copy"><p>I’m Tyson Barnes. I’ve always been drawn to Design and Technology — the meeting point between imagining something and finding out how to make it real.</p><p>My background spans industrial automation, software, digital products and practical engineering. That experience informs how I design: with curiosity about the idea, respect for the material and responsibility for how the finished thing behaves.</p><p>This site is a growing record of selected work, experiments and the decisions behind them.</p><a class="text-button" href="https://tysonbarnes.co.uk/" target="_blank" rel="noopener noreferrer">EXPLORE THE BROADER WORK <span>↗</span></a></div></div>
+        </section>
+        <section id="contact" class="contact-section section-pad">
+          <p class="eyebrow"><span class="section-number">05 /</span> START A CONVERSATION</p>
+          <h2>Have something<br /><em>worth making?</em></h2>
+          <p>Interesting brief, difficult problem, ambitious idea or just a useful conversation — good things begin somewhere.</p>
+          <a href="https://tysonbarnes.co.uk/" class="contact-link">GET IN TOUCH VIA THE MAIN SITE <span>↗</span></a>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <a class="footer-brand" href="#top">TB<span>.</span> / DESIGN</a>
+        <span>INDEPENDENT THINKING. TANGIBLE RESULTS.</span>
+        <span>© 2026 TYSON BARNES · <a href="https://tysonbarnes.co.uk/">MAIN SITE ↗</a></span>
+      </footer>
+    </div>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.mobile-menu-button');
+      const mobile = document.querySelector<HTMLElement>('.mobile-nav');
+      if (toggle && mobile) {
+        const setOpen = (open: boolean) => {
+          toggle.setAttribute('aria-expanded', String(open));
+          mobile.hidden = !open;
+          toggle.querySelector('span')!.textContent = open ? '−' : '+';
+        };
+        toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+        mobile.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+      }
+    </script>
+  </body>
+</html>
