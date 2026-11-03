@@ -47,3 +47,17 @@ jobs:
           path: design/dist
           if-no-files-found: error
           retention-days: 7
+      - name: Install browser test runner and Chromium
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Review desktop and mobile layouts
+        run: node scripts/visual-preview.mjs
+      - name: Upload visual review and smoke-test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tb-design-visual-review
+          path: design/preview-artifacts
+          if-no-files-found: warn
+          retention-days: 7
