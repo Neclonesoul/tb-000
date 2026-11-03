@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://design.tysonbarnes.co.uk/sitemap-index.xml

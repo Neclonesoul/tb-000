@@ -1,0 +1,66 @@
+---
+interface Props {
+  art: 'bible' | 'yard' | 'veld' | 'industrial' | 'alder';
+}
+const { art } = Astro.props;
+---
+<div class={`work-art art-${art}`} aria-hidden="true">
+  {art === 'bible' && (
+    <div class="bible-object">
+      <div class="bible-caption"><span>TEXT / FORM / MEANING</span><span>VOL. I — 1611</span></div>
+      <div class="bible-open">
+        <div class="bible-left">
+          <div class="bible-cross">✳</div>
+          <div class="bible-rule"></div>
+          <span>THE BOOK OF</span>
+          <strong>GENESIS</strong>
+          <div class="bible-rule"></div>
+          <small>CHAPTER I</small>
+        </div>
+        <div class="bible-right"><span class="bible-drop">I</span><p>In the beginning God created the heaven and the earth.</p><p>And the earth was without form, and void; and darkness was upon the face of the deep.</p><div class="bible-lines"></div></div>
+      </div>
+      <div class="art-corner-note">READING WITHOUT NOISE</div>
+    </div>
+  )}
+  {art === 'yard' && (
+    <div class="yard-object">
+      <div class="yard-grid"></div>
+      <span class="yard-side">EVIDENCE PROTOCOL / FIELD DESIGN</span>
+      <div class="yard-phone">
+        <div class="phone-head"><strong>Y//P</strong><span>01 / 04</span></div>
+        <div class="phone-progress"><span></span><span></span><span></span><span></span></div>
+        <small>CAPTURE / OFFLOAD BIN</small>
+        <div class="phone-target"><div class="target-cross">+</div><span>FRAME IMAGE</span></div>
+        <div class="phone-meta"><span>GPS STATUS</span><strong>REVIEW REQUIRED</strong></div>
+        <div class="phone-action">CONTINUE <span>↗</span></div>
+      </div>
+      <span class="yard-stamp">ILLUSTRATIVE UI / NOT A SCREENSHOT</span>
+    </div>
+  )}
+  {art === 'veld' && (
+    <div class="veld-object">
+      <div class="veld-disc"><span class="veld-ring r1"></span><span class="veld-ring r2"></span><span class="veld-ring r3"></span><span class="veld-core"></span></div>
+      <div class="veld-traces"><span></span><span></span><span></span><span></span></div>
+      <span class="veld-word">VELD<span>//</span>LIFE</span>
+      <span class="veld-meta">AN INTERACTIVE VISUAL EXPERIMENT · 001</span>
+    </div>
+  )}
+  {art === 'industrial' && (
+    <div class="industrial-object">
+      <div class="ind-top"><span>SYSTEM / OVERVIEW</span><span>DESIGN RECONSTRUCTION</span></div>
+      <div class="ind-shell">
+        <div class="ind-rail"><i></i><i></i><i></i><i></i></div>
+        <div class="ind-content">
+          <div class="ind-label">PLANT STATUS <strong>NOMINAL</strong></div>
+          <div class="ind-diagram"><span class="ind-box box-one">INPUT</span><span class="ind-link"></span><span class="ind-box box-two">CONTROL</span><span class="ind-link"></span><span class="ind-box box-three">OUTPUT</span></div>
+          <div class="ind-chart"><span style="height:37%"></span><span style="height:58%"></span><span style="height:45%"></span><span style="height:77%"></span><span style="height:63%"></span><span style="height:91%"></span><span style="height:68%"></span><span style="height:82%"></span><span style="height:59%"></span><span style="height:74%"></span></div>
+          <div class="ind-bottom"><span>STATUS / 01</span><span>ALARMS / 00</span><span>PROCESS / ACTIVE</span></div>
+        </div>
+      </div>
+      <span class="ind-disclaimer">FICTIONALISED DIAGRAM · NO CLIENT DATA</span>
+    </div>
+  )}
+  {art === 'alder' && (
+    <div class="alder-object"><div class="alder-frame"><span>ATELIER / 001</span><div class="alder-mark">A<span>&</span>V</div><strong>ALDER<br />&amp; VALE</strong><div class="alder-rule"></div><small>A FICTIONAL IDENTITY STUDY<br />IN FORM, TYPE &amp; RESTRAINT</small></div><span class="alder-note">CONCEPT / NOT A COMMISSION</span></div>
+  )}
+</div>
