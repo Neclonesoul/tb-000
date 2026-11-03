@@ -23,7 +23,7 @@ concurrency:
 jobs:
   design:
     name: Validate independent Astro site
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: design
