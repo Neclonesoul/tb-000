@@ -39,14 +39,14 @@ try {
   const projects = await desktop.locator('.project-card').count();
   if (projects !== 4) throw new Error(`Expected four featured project cards, found ${projects}`);
   if (await desktop.evaluate(() => document.documentElement.scrollWidth > innerWidth + 3)) throw new Error('Desktop horizontal overflow');
-  await desktop.screenshot({ path: new URL('desktop.png', outputDir).pathname, fullPage: true, animations: 'disabled' });
+  await desktop.screenshot({ path: new URL('desktop.jpg', outputDir).pathname, fullPage: true, animations: 'disabled', type: 'jpeg', quality: 78 });
 
   const caseLink = await desktop.locator('.project-card').first().getAttribute('href');
   if (!caseLink) throw new Error('Missing first project link');
   const caseResponse = await desktop.goto(new URL(caseLink, rootUrl).toString(), {waitUntil:'networkidle'});
   if (!caseResponse?.ok()) throw new Error('Case study returned non-200 response');
   await desktop.locator('.case-page h1').waitFor();
-  await desktop.screenshot({ path: new URL('case-study.png', outputDir).pathname, fullPage: true, animations: 'disabled' });
+  await desktop.screenshot({ path: new URL('case-study.jpg', outputDir).pathname, fullPage: true, animations: 'disabled', type: 'jpeg', quality: 78 });
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true, reducedMotion: 'reduce' });
   mobile.on('pageerror', error => errors.push('mobile JS: ' + error.message));
@@ -54,7 +54,7 @@ try {
   await mobile.locator('#hero-title').waitFor();
   const mobileOverflow = await mobile.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: innerWidth }));
   if (mobileOverflow.width > mobileOverflow.viewport + 3) throw new Error('Mobile horizontal overflow: ' + JSON.stringify(mobileOverflow));
-  await mobile.screenshot({ path: new URL('mobile.png', outputDir).pathname, fullPage: true, animations: 'disabled' });
+  await mobile.screenshot({ path: new URL('mobile.jpg', outputDir).pathname, fullPage: true, animations: 'disabled', type: 'jpeg', quality: 78 });
 
   const toggle = mobile.locator('.mobile-menu-button');
   await toggle.click();
